@@ -1,0 +1,89 @@
+[0;33m--- WARNING: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM4 instead...[0m
+[0;33m--- esp-idf-monitor 1.4.0 on \\.\COM4 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081210: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2b5: spi_ll_set_address at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:852
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2bf: spi_ll_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:123
+ (inlined by) spi_hal_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_hal_iram.c:195
+0x40083db9: spi_device_polling_end at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1089
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2b5: spi_ll_set_address at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:852
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2bf: spi_ll_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:123
+ (inlined by) spi_hal_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_hal_iram.c:195
+0x40083db9: spi_device_polling_end at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1089
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2b5: spi_ll_set_address at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:852
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2bf: spi_ll_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:123
+ (inlined by) spi_hal_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_hal_iram.c:195
+0x40083db9: spi_device_polling_end at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1089
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2b5: spi_ll_set_address at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:852
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x400d9cbf: task_wdt_timeout_handling at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:461 (discriminator 3)
+0x400d9e46: task_wdt_isr at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/task_wdt/task_wdt.c:585
+0x40082aa1: _xt_lowint1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:1240
+0x4008b2bf: spi_ll_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/esp32/include/hal/spi_ll.h:123
+ (inlined by) spi_hal_usr_is_done at C:/Espressif/frameworks/esp-idf-v5.1.2/components/hal/spi_hal_iram.c:195
+0x40083db9: spi_device_polling_end at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1089
+0x40083e15: spi_device_polling_transmit at C:/Espressif/frameworks/esp-idf-v5.1.2/components/driver/spi/gpspi/spi_master.c:1120
+0x400d599d: app_main at C:/Users/Xavier Velez/Documents/GPT/GPIO_Test/main/GPIO_Test.c:157 (discriminator 1)
+0x400e667c: main_task at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/app_startup.c:208 (discriminator 13)
+0x40089049: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0m

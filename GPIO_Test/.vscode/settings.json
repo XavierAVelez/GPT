@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "gpio.h": "c",
+        "format": "c",
+        "string_view": "c",
+        "regex": "c",
+        "xlocale": "c",
+        "xstring": "c",
+        "*.inc": "c",
+        "algorithm": "c",
+        "charconv": "c",
+        "chrono": "c",
+        "filesystem": "c",
+        "memory": "c",
+        "random": "c",
+        "ranges": "c",
+        "xutility": "c"
+    }
+}
