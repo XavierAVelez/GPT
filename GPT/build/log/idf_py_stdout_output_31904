@@ -1,0 +1,287 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7080
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Feb 15 2024 22:04:49[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b460h ( 46176) map[0m
+[0;32mI (121) esp_image: segment 1: paddr=0001b488 vaddr=3ffb0000 size=02288h (  8840) load[0m
+[0;32mI (125) esp_image: segment 2: paddr=0001d718 vaddr=40080000 size=02900h ( 10496) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1710ch ( 94476) map[0m
+[0;32mI (169) esp_image: segment 4: paddr=00037134 vaddr=40082900 size=0b67ch ( 46716) load[0m
+[0;32mI (196) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (196) boot: Disabling RNG early entropy source...[0m
+[0;32mI (207) cpu_start: Multicore app[0m
+[0;32mI (208) cpu_start: Pro cpu up.[0m
+[0;32mI (208) cpu_start: Starting app cpu, entry point is 0x40081220[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (226) cpu_start: Pro cpu start user code[0m
+[0;32mI (226) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (226) cpu_start: Application information:[0m
+[0;32mI (231) cpu_start: Project name:     GPT[0m
+[0;32mI (235) cpu_start: App version:      2963839-dirty[0m
+[0;32mI (241) cpu_start: Compile time:     Feb 15 2024 22:03:55[0m
+[0;32mI (247) cpu_start: ELF file SHA256:  0315cde98c778b94...[0m
+[0;32mI (253) cpu_start: ESP-IDF:          v5.1.2[0m
+[0;32mI (258) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (262) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (267) cpu_start: Chip rev:         v3.0[0m
+[0;32mI (272) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (279) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (285) heap_init: At 3FFB2B30 len 0002D4D0 (181 KiB): DRAM[0m
+[0;32mI (291) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (298) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (304) heap_init: At 4008DF7C len 00012084 (72 KiB): IRAM[0m
+[0;32mI (312) spi_flash: detected chip: generic[0m
+[0;32mI (315) spi_flash: flash io: dio[0m
+[0;32mI (320) app_start: Starting scheduler on CPU0[0m
+[0;32mI (324) app_start: Starting scheduler on CPU1[0m
+[0;32mI (324) main_task: Started on CPU0[0m
+[0;32mI (334) main_task: Calling app_main()[0m
+[0;32mI (334) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (344) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:1 [0m
+Master input:
+Accel X: 50.524500
+Accel Y: 13.650000
+Accel Z: 21.777600
+
+Gyro X: 100.401600
+Gyro Y: 0.276900
+Gyro Z: 98.311200
+Accel X: 50.524500
+Accel Y: 14.164800
+Accel Z: 21.621600
+
+Gyro X: 100.335300
+Gyro Y: 0.152100
+Gyro Z: 97.940700
+Accel X: 50.524500
+Accel Y: 13.728000
+Accel Z: 21.574800
+
+Gyro X: 0.031200
+Gyro Y: 0.390000
+Gyro Z: 98.439900
+Accel X: 50.524500
+Accel Y: 13.759200
+Accel Z: 21.652800
+
+Gyro X: 100.401600
+Gyro Y: 0.113100
+Gyro Z: 98.069400
+Accel X: 50.524500
+Accel Y: 13.759200
+Accel Z: 21.543600
+
+Gyro X: 100.366500
+Gyro Y: 0.206700
+Gyro Z: 98.478900
+Accel X: 50.524500
+Accel Y: 11.481600
+Accel Z: 23.400000
+
+Gyro X: 1.314300
+Gyro Y: 0.452400
+Gyro Z: 98.385300
+Accel X: 50.524500
+Accel Y: 16.941600
+Accel Z: 8.767200
+
+Gyro X: 1.322100
+Gyro Y: 72.239700
+Gyro Z: 97.944600
+Accel X: 50.524500
+Accel Y: 16.941600
+Accel Z: 2.168400
+
+Gyro X: 100.272900
+Gyro Y: 1.454700
+Gyro Z: 97.893900
+Accel X: 50.524500
+Accel Y: 17.206800
+Accel Z: 5.428800
+
+Gyro X: 0.994500
+Gyro Y: 0.198900
+Gyro Z: 98.443800
+Accel X: 50.524500
+Accel Y: 16.972800
+Accel Z: 2.340000
+
+Gyro X: 0.050700
+Gyro Y: 97.597500
+Gyro Z: 97.909500
+Accel X: 50.524500
+Accel Y: 16.910400
+Accel Z: 5.772000
+
+Gyro X: 0.300300
+Gyro Y: 0.881400
+Gyro Z: 97.913400
+Accel X: 50.524500
+Accel Y: 16.021200
+Accel Z: 2.932800
+
+Gyro X: 99.680100
+Gyro Y: 1.907100
+Gyro Z: 97.999200
+Accel X: 50.524500
+Accel Y: 16.598400
+Accel Z: 2.745600
+
+Gyro X: 1.357200
+Gyro Y: 95.000100
+Gyro Z: 97.921200
+Accel X: 50.524500
+Accel Y: 15.958800
+Accel Z: 81.229200
+
+Gyro X: 98.381400
+Gyro Y: 5.487300
+Gyro Z: 98.408700
+Accel X: 50.524500
+Accel Y: 14.976000
+Accel Z: 16.395600
+
+Gyro X: 97.925100
+Gyro Y: 23.552100
+Gyro Z: 98.358000
+Accel X: 50.524500
+Accel Y: 12.292800
+Accel Z: 21.013200
+
+Gyro X: 0.881400
+Gyro Y: 1.961700
+Gyro Z: 98.280000
+Accel X: 50.524500
+Accel Y: 30.607200
+Accel Z: 19.515600
+
+Gyro X: 97.515600
+Gyro Y: 5.721300
+Gyro Z: 98.471100
+Accel X: 50.524500
+Accel Y: 21.450000
+Accel Z: 23.197200
+
+Gyro X: 2.975700
+Gyro Y: 4.165200
+Gyro Z: 98.342400
+Accel X: 50.524500
+Accel Y: 7.909200
+Accel Z: 19.406400
+
+Gyro X: 2.671500
+Gyro Y: 3.049800
+Gyro Z: 98.280000
+Accel X: 50.524500
+Accel Y: 96.720000
+Accel Z: 20.358000
+
+Gyro X: 1.216800
+Gyro Y: 3.170700
+Gyro Z: 98.389200
+Accel X: 50.524500
+Accel Y: 14.180400
+Accel Z: 95.284800
+
+Gyro X: 7.324200
+Gyro Y: 85.363200
+Gyro Z: 98.478900
+Accel X: 44.616000
+Accel Y: 13.072800
+Accel Z: 50.524500
+
+Gyro X: 96.458700
+Gyro Y: 95.830800
+Gyro Z: 98.416500
+Accel X: 50.524500
+Accel Y: 13.509600
+Accel Z: 97.188000
+
+Gyro X: 7.335900
+Gyro Y: 0.807300
+Gyro Z: 98.432100
+Accel X: 50.524500
+Accel Y: 14.632800
+Accel Z: 21.153600
+
+Gyro X: 0.612300
+Gyro Y: 0.725400
+Gyro Z: 98.432100
+Accel X: 50.524500
+Accel Y: 11.980800
+Accel Z: 17.191200
+
+Gyro X: 95.577300
+Gyro Y: 23.298600
+Gyro Z: 98.404800
+Accel X: 50.524500
+Accel Y: 3.307200
+Accel Z: 48.375600
+
+Gyro X: 5.463900
+Gyro Y: 16.438500
+Gyro Z: 98.389200
+Accel X: 50.524500
+Accel Y: 93.444000
+Accel Z: 45.536400
+
+Gyro X: 21.754200
+Gyro Y: 83.479500
+Gyro Z: 98.451600
+Accel X: 50.524500
+Accel Y: 6.162000
+Accel Z: 93.631200
+
+Gyro X: 49.920000
+Gyro Y: 37.346400
+Gyro Z: 98.385300
+Accel X: 50.524500
+Accel Y: 8.299200
+Accel Z: 10.280400
+
+Gyro X: 28.965300
+Gyro Y: 89.657100
+Gyro Z: 97.940700
+Accel X: 50.524500
+Accel Y: 14.040000
+Accel Z: 21.091200
+
+Gyro X: 100.155900
+Gyro Y: 0.093600
+Gyro Z: 98.486700
+Accel X: 50.524500
+Accel Y: 13.993200
+Accel Z: 21.855600
+
+Gyro X: 100.436700
+Gyro Y: 0.237900
+Gyro Z: 97.975800
+Accel X: 50.524500
+Accel Y: 13.650000
+Accel Z: 21.918000
+
+Gyro X: 100.436700
+Gyro Y: 0.113100
+Gyro Z: 98.424300
