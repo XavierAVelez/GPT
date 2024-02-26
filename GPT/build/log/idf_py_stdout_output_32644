@@ -1,0 +1,1271 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7080
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Feb 15 2024 22:04:49[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=23784h (145284) map[0m
+[0;32mI (157) esp_image: segment 1: paddr=000337ac vaddr=3ffb0000 size=03c14h ( 15380) load[0m
+[0;32mI (163) esp_image: segment 2: paddr=000373c8 vaddr=40080000 size=08c50h ( 35920) load[0m
+[0;32mI (178) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=8cfe4h (577508) map[0m
+[0;32mI (387) esp_image: segment 4: paddr=000cd00c vaddr=40088c50 size=0ecd4h ( 60628) load[0m
+[0;32mI (424) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (424) boot: Disabling RNG early entropy source...[0m
+[0;32mI (436) cpu_start: Multicore app[0m
+[0;32mI (436) cpu_start: Pro cpu up.[0m
+[0;32mI (436) cpu_start: Starting app cpu, entry point is 0x400814a4[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (454) cpu_start: Pro cpu start user code[0m
+[0;32mI (454) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (454) cpu_start: Application information:[0m
+[0;32mI (459) cpu_start: Project name:     GPT[0m
+[0;32mI (463) cpu_start: App version:      95770a4-dirty[0m
+[0;32mI (469) cpu_start: Compile time:     Feb 19 2024 13:31:57[0m
+[0;32mI (475) cpu_start: ELF file SHA256:  483d6aa3c9460683...[0m
+[0;32mI (481) cpu_start: ESP-IDF:          v5.1.2[0m
+[0;32mI (486) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (490) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (495) cpu_start: Chip rev:         v3.0[0m
+[0;32mI (500) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (507) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (513) heap_init: At 3FFB7CE8 len 00028318 (160 KiB): DRAM[0m
+[0;32mI (520) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (526) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (532) heap_init: At 40097924 len 000086DC (33 KiB): IRAM[0m
+[0;32mI (540) spi_flash: detected chip: generic[0m
+[0;32mI (543) spi_flash: flash io: dio[0m
+[0;32mI (548) app_start: Starting scheduler on CPU0[0m
+[0;32mI (552) app_start: Starting scheduler on CPU1[0m
+[0;32mI (552) main_task: Started on CPU0[0m
+[0;32mI (562) main_task: Calling app_main()[0m
+I (602) wifi:wifi driver task: 3ffbfcb8, prio:23, stack:6656, core=0
+I (612) wifi:wifi firmware version: 91b9630
+I (612) wifi:wifi certification version: v7.0
+I (612) wifi:config NVS flash: enabled
+I (612) wifi:config nano formating: disabled
+I (612) wifi:Init data frame dynamic rx buffer num: 32
+I (622) wifi:Init static rx mgmt buffer num: 5
+I (622) wifi:Init management short buffer num: 32
+I (632) wifi:Init dynamic tx buffer num: 32
+I (632) wifi:Init static rx buffer size: 1600
+I (642) wifi:Init static rx buffer num: 10
+I (642) wifi:Init dynamic rx buffer num: 32
+[0;32mI (642) wifi_init: rx ba win: 6[0m
+[0;32mI (652) wifi_init: tcpip mbox: 32[0m
+[0;32mI (652) wifi_init: udp mbox: 6[0m
+[0;32mI (652) wifi_init: tcp mbox: 6[0m
+[0;32mI (662) wifi_init: tcp tx win: 5744[0m
+[0;32mI (662) wifi_init: tcp rx win: 5744[0m
+[0;32mI (672) wifi_init: tcp mss: 1440[0m
+[0;32mI (672) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (682) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (682) phy_init: phy_version 4780,16b31a7,Sep 22 2023,20:42:16[0m
+I (762) wifi:mode : sta (40:22:d8:ea:1f:20)
+I (762) wifi:enable tsf
+WiFi connecting WIFI_EVENT_STA_START ... 
+[0;32mI (772) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (772) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:1 [0m
+I (782) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (792) wifi:state: init -> auth (b0)
+Master input:
+I (802) wifi:state: auth -> assoc (0)
+I (832) wifi:state: assoc -> run (10)
+I (1382) wifi:connected with XavierV (2), aid = 2, channel 6, BW20, bssid = 3e:2d:ee:29:42:71
+I (1382) wifi:security: WPA2-PSK, phy: bgn, rssi: -32
+I (1392) wifi:pm start, type: 1
+
+WiFi connected WIFI_EVENT_STA_CONNECTED ... 
+I (1432) wifi:AP's beacon interval = 102400 us, DTIM period = 3
+I (1892) wifi:<ba-add>idx:0 (ifx:0, 3e:2d:ee:29:42:71), tid:0, ssn:2, winSize:64
+[0;32mI (2892) esp_netif_handlers: sta ip: 172.20.10.4, mask: 255.255.255.240, gw: 172.20.10.1[0m
+WiFi got IP ... 
+
+Accel X: 50.524500
+Accel Y: 14.227200
+Accel Z: 21.652800
+
+Gyro X: 100.389900
+Gyro Y: 0.210600
+Gyro Z: 97.964100
+Count: 1Accel X: 50.524500
+Accel Y: 14.102400
+Accel Z: 21.964800
+
+Gyro X: 0.019500
+Gyro Y: 0.156000
+Gyro Z: 98.385300
+Count: 2Accel X: 50.524500
+Accel Y: 14.383200
+Accel Z: 21.840000
+
+Gyro X: 100.389900
+Gyro Y: 0.015600
+Gyro Z: 98.373600
+Count: 3Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 21.777600
+
+Gyro X: 100.425000
+Gyro Y: 0.070200
+Gyro Z: 98.065500
+Count: 4Accel X: 50.524500
+Accel Y: 14.414400
+Accel Z: 21.496800
+
+Gyro X: 0.081900
+Gyro Y: 0.124800
+Gyro Z: 98.412600
+Count: 5Accel X: 50.524500
+Accel Y: 14.274000
+Accel Z: 21.606000
+
+Gyro X: 0.093600
+Gyro Y: 0.159900
+Gyro Z: 98.432100
+Count: 6Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 21.996000
+
+Gyro X: 0.019500
+Gyro Y: 0.206700
+Gyro Z: 98.241000
+Count: 7Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 22.230000
+
+Gyro X: 0.085800
+Gyro Y: 0.050700
+Gyro Z: 98.260500
+Count: 8Accel X: 50.524500
+Accel Y: 14.289600
+Accel Z: 21.824400
+
+Gyro X: 100.421100
+Gyro Y: 0.128700
+Gyro Z: 97.905600
+Count: 9Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 21.871200
+
+Gyro X: 0.074100
+Gyro Y: 0.066300
+Gyro Z: 97.909500
+Count: 10Accel X: 50.524500
+Accel Y: 14.180400
+Accel Z: 21.793200
+
+Gyro X: 100.358700
+Gyro Y: 0.117000
+Gyro Z: 98.346300
+Count: 11Accel X: 50.524500
+Accel Y: 14.055600
+Accel Z: 21.840000
+
+Gyro X: 0.156000
+Gyro Y: 0.136500
+Gyro Z: 97.932900
+Count: 12Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.746400
+
+Gyro X: 100.444500
+Gyro Y: 0.163800
+Gyro Z: 97.999200
+Count: 13Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 21.808800
+
+Gyro X: 0.144300
+Gyro Y: 0.050700
+Gyro Z: 97.987500
+Count: 14Accel X: 50.524500
+Accel Y: 14.570400
+Accel Z: 21.855600
+
+Gyro X: 0.054600
+Gyro Y: 0.003900
+Gyro Z: 98.038200
+Count: 15Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.652800
+
+Gyro X: 0.054600
+Gyro Y: 0.081900
+Gyro Z: 98.432100
+Count: 16Accel X: 50.524500
+Accel Y: 14.149200
+Accel Z: 21.933600
+
+Gyro X: 0.023400
+Gyro Y: 0.011700
+Gyro Z: 98.377500
+Count: 17Accel X: 50.524500
+Accel Y: 14.508000
+Accel Z: 21.824400
+
+Gyro X: 100.417200
+Gyro Y: 0.148200
+Gyro Z: 98.439900
+Count: 18Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 22.167600
+
+Gyro X: 100.417200
+Gyro Y: 0.159900
+Gyro Z: 98.451600
+Count: 19Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 21.840000
+
+Gyro X: 0.046800
+Gyro Y: 0.085800
+Gyro Z: 97.971900
+Count: 20Accel X: 50.524500
+Accel Y: 14.133600
+Accel Z: 21.793200
+
+Gyro X: 0.128700
+Gyro Y: 0.120900
+Gyro Z: 98.361900
+Count: 21Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.793200
+
+Gyro X: 0.023400
+Gyro Y: 0.124800
+Gyro Z: 98.365800
+Count: 22Accel X: 50.524500
+Accel Y: 14.118000
+Accel Z: 22.105200
+
+Gyro X: 0.035100
+Gyro Y: 0.171600
+Gyro Z: 98.400900
+Count: 23Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.933600
+
+Gyro X: 0.081900
+Gyro Y: 0.062400
+Gyro Z: 98.471100
+Count: 24Accel X: 50.524500
+Accel Y: 14.211600
+Accel Z: 21.824400
+
+Gyro X: 0.046800
+Gyro Y: 0.078000
+Gyro Z: 98.404800
+Count: 25Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 21.512400
+
+Gyro X: 0.007800
+Gyro Y: 0.042900
+Gyro Z: 98.338500
+Count: 26Accel X: 50.524500
+Accel Y: 14.336400
+Accel Z: 21.855600
+
+Gyro X: 0.066300
+Gyro Y: 0.078000
+Gyro Z: 98.459400
+Count: 27Accel X: 50.524500
+Accel Y: 14.289600
+Accel Z: 21.543600
+
+Gyro X: 0.097500
+Gyro Y: 0.148200
+Gyro Z: 98.490600
+Count: 28Accel X: 50.524500
+Accel Y: 14.523600
+Accel Z: 22.042800
+
+Gyro X: 0.206700
+Gyro Y: 0.113100
+Gyro Z: 97.983600
+Count: 29Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 21.621600
+
+Gyro X: 100.428900
+Gyro Y: 0.136500
+Gyro Z: 97.913400
+Count: 30Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 21.746400
+
+Gyro X: 0.050700
+Gyro Y: 0.198900
+Gyro Z: 97.971900
+Count: 31Accel X: 50.524500
+Accel Y: 14.383200
+Accel Z: 21.902400
+
+Gyro X: 0.015600
+Gyro Y: 0.097500
+Gyro Z: 97.952400
+Count: 32Accel X: 50.524500
+Accel Y: 14.164800
+Accel Z: 21.840000
+
+Gyro X: 100.436700
+Gyro Y: 0.074100
+Gyro Z: 98.361900
+Count: 33Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 22.105200
+
+Gyro X: 100.428900
+Gyro Y: 0.015600
+Gyro Z: 98.490600
+Count: 34Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 22.011600
+
+Gyro X: 100.401600
+Gyro Y: 0.195000
+Gyro Z: 98.198100
+Count: 35Accel X: 50.524500
+Accel Y: 14.071200
+Accel Z: 21.855600
+
+Gyro X: 0.050700
+Gyro Y: 0.198900
+Gyro Z: 98.397000
+Count: 36Accel X: 50.524500
+Accel Y: 14.086800
+Accel Z: 21.933600
+
+Gyro X: 0.042900
+Gyro Y: 0.120900
+Gyro Z: 98.346300
+Count: 37Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 22.198800
+
+Gyro X: 0.027300
+Gyro Y: 100.425000
+Gyro Z: 97.975800
+Count: 38Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 21.543600
+
+Gyro X: 0.000000
+Gyro Y: 0.179400
+Gyro Z: 97.971900
+Count: 39Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 21.980400
+
+Gyro X: 0.015600
+Gyro Y: 100.436700
+Gyro Z: 98.439900
+Count: 40Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.684000
+
+Gyro X: 0.035100
+Gyro Y: 0.167700
+Gyro Z: 98.432100
+Count: 41Accel X: 50.524500
+Accel Y: 14.508000
+Accel Z: 21.762000
+
+Gyro X: 0.054600
+Gyro Y: 0.039000
+Gyro Z: 98.420400
+Count: 42Accel X: 50.524500
+Accel Y: 14.336400
+Accel Z: 21.824400
+
+Gyro X: 100.425000
+Gyro Y: 0.050700
+Gyro Z: 97.960200
+Count: 43Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 21.699600
+
+Gyro X: 0.078000
+Gyro Y: 0.152100
+Gyro Z: 97.975800
+Count: 44Accel X: 50.524500
+Accel Y: 14.492400
+Accel Z: 22.027200
+
+Gyro X: 0.081900
+Gyro Y: 0.113100
+Gyro Z: 98.447700
+Count: 45Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 21.855600
+
+Gyro X: 100.444500
+Gyro Y: 0.113100
+Gyro Z: 98.205900
+Count: 46Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.574800
+
+Gyro X: 100.432800
+Gyro Y: 0.081900
+Gyro Z: 98.330700
+Count: 47Accel X: 50.524500
+Accel Y: 14.523600
+Accel Z: 21.996000
+
+Gyro X: 100.421100
+Gyro Y: 0.007800
+Gyro Z: 98.022600
+Count: 48Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 21.933600
+
+Gyro X: 0.070200
+Gyro Y: 0.128700
+Gyro Z: 98.420400
+Count: 49Accel X: 50.524500
+Accel Y: 14.164800
+Accel Z: 21.933600
+
+Gyro X: 0.085800
+Gyro Y: 0.070200
+Gyro Z: 98.447700
+Count: 50Accel X: 50.524500
+Accel Y: 14.383200
+Accel Z: 21.746400
+
+Gyro X: 0.120900
+Gyro Y: 0.159900
+Gyro Z: 98.397000
+Count: 51Accel X: 50.524500
+Accel Y: 14.211600
+Accel Z: 21.730800
+
+Gyro X: 0.062400
+Gyro Y: 0.144300
+Gyro Z: 97.905600
+Count: 52Accel X: 50.524500
+Accel Y: 14.289600
+Accel Z: 21.606000
+
+Gyro X: 0.089700
+Gyro Y: 0.093600
+Gyro Z: 98.471100
+Count: 53Accel X: 50.524500
+Accel Y: 14.508000
+Accel Z: 21.621600
+
+Gyro X: 100.417200
+Gyro Y: 0.159900
+Gyro Z: 98.416500
+Count: 54Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 21.559200
+
+Gyro X: 0.007800
+Gyro Y: 100.425000
+Gyro Z: 98.186400
+Count: 55Accel X: 50.524500
+Accel Y: 14.071200
+Accel Z: 21.465600
+
+Gyro X: 100.436700
+Gyro Y: 0.066300
+Gyro Z: 98.424300
+Count: 56Accel X: 50.524500
+Accel Y: 14.508000
+Accel Z: 21.762000
+
+Gyro X: 0.081900
+Gyro Y: 100.440600
+Gyro Z: 97.971900
+Count: 57Accel X: 50.524500
+Accel Y: 14.227200
+Accel Z: 22.058400
+
+Gyro X: 0.101400
+Gyro Y: 0.132600
+Gyro Z: 98.443800
+Count: 58Accel X: 50.524500
+Accel Y: 14.570400
+Accel Z: 21.590400
+
+Gyro X: 0.097500
+Gyro Y: 0.218400
+Gyro Z: 97.917300
+Count: 59Accel X: 50.524500
+Accel Y: 14.305200
+Accel Z: 21.559200
+
+Gyro X: 0.054600
+Gyro Y: 0.183300
+Gyro Z: 97.956300
+Count: 60Accel X: 50.524500
+Accel Y: 14.367600
+Accel Z: 21.652800
+
+Gyro X: 0.015600
+Gyro Y: 0.074100
+Gyro Z: 98.003100
+Count: 61Accel X: 50.524500
+Accel Y: 14.071200
+Accel Z: 21.996000
+
+Gyro X: 0.066300
+Gyro Y: 0.210600
+Gyro Z: 97.917300
+Count: 62Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 22.136400
+
+Gyro X: 0.093600
+Gyro Y: 0.105300
+Gyro Z: 98.377500
+Count: 63Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 21.715200
+
+Gyro X: 0.042900
+Gyro Y: 0.109200
+Gyro Z: 98.436000
+Count: 64Accel X: 50.524500
+Accel Y: 14.414400
+Accel Z: 21.871200
+
+Gyro X: 100.393800
+Gyro Y: 0.066300
+Gyro Z: 97.999200
+Count: 65Accel X: 50.524500
+Accel Y: 14.196000
+Accel Z: 22.089600
+
+Gyro X: 0.081900
+Gyro Y: 100.444500
+Gyro Z: 98.338500
+Count: 66Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 21.964800
+
+Gyro X: 100.432800
+Gyro Y: 0.105300
+Gyro Z: 98.354100
+Count: 67Accel X: 50.524500
+Accel Y: 14.461200
+Accel Z: 21.465600
+
+Gyro X: 100.417200
+Gyro Y: 0.269100
+Gyro Z: 98.003100
+Count: 68Accel X: 50.524500
+Accel Y: 14.196000
+Accel Z: 22.042800
+
+Gyro X: 100.401600
+Gyro Y: 0.078000
+Gyro Z: 98.299500
+Count: 69Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 21.996000
+
+Gyro X: 0.159900
+Gyro Y: 0.179400
+Gyro Z: 98.030400
+Count: 70Accel X: 50.524500
+Accel Y: 14.367600
+Accel Z: 22.276800
+
+Gyro X: 0.058500
+Gyro Y: 0.093600
+Gyro Z: 98.447700
+Count: 71Accel X: 50.524500
+Accel Y: 14.523600
+Accel Z: 21.684000
+
+Gyro X: 0.081900
+Gyro Y: 0.019500
+Gyro Z: 98.334600
+Count: 72Accel X: 50.524500
+Accel Y: 14.414400
+Accel Z: 21.699600
+
+Gyro X: 100.444500
+Gyro Y: 0.159900
+Gyro Z: 98.389200
+Count: 73Accel X: 50.524500
+Accel Y: 14.508000
+Accel Z: 21.606000
+
+Gyro X: 100.432800
+Gyro Y: 0.202800
+Gyro Z: 98.303400
+Count: 74Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 21.730800
+
+Gyro X: 0.089700
+Gyro Y: 0.117000
+Gyro Z: 98.471100
+Count: 75Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 21.918000
+
+Gyro X: 0.031200
+Gyro Y: 0.245700
+Gyro Z: 98.256600
+Count: 76Accel X: 50.524500
+Accel Y: 14.258400
+Accel Z: 21.918000
+
+Gyro X: 0.058500
+Gyro Y: 0.163800
+Gyro Z: 97.921200
+Count: 77Accel X: 50.524500
+Accel Y: 14.414400
+Accel Z: 21.746400
+
+Gyro X: 0.000000
+Gyro Y: 0.078000
+Gyro Z: 98.319000
+Count: 78Accel X: 50.524500
+Accel Y: 14.492400
+Accel Z: 22.105200
+
+Gyro X: 0.023400
+Gyro Y: 0.093600
+Gyro Z: 97.925100
+Count: 79Accel X: 50.524500
+Accel Y: 14.461200
+Accel Z: 21.980400
+
+Gyro X: 100.409400
+Gyro Y: 0.179400
+Gyro Z: 98.428200
+Count: 80Accel X: 50.524500
+Accel Y: 14.274000
+Accel Z: 21.902400
+
+Gyro X: 100.417200
+Gyro Y: 0.148200
+Gyro Z: 98.018700
+Count: 81Accel X: 50.524500
+Accel Y: 14.258400
+Accel Z: 21.777600
+
+Gyro X: 0.027300
+Gyro Y: 0.148200
+Gyro Z: 98.420400
+Count: 82Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 21.652800
+
+Gyro X: 100.362600
+Gyro Y: 0.085800
+Gyro Z: 98.338500
+Count: 83Accel X: 50.524500
+Accel Y: 14.445600
+Accel Z: 21.668400
+
+Gyro X: 100.401600
+Gyro Y: 0.136500
+Gyro Z: 98.299500
+Count: 84Accel X: 50.524500
+Accel Y: 14.305200
+Accel Z: 21.902400
+
+Gyro X: 0.000000
+Gyro Y: 0.124800
+Gyro Z: 98.463300
+Count: 85Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 21.808800
+
+Gyro X: 0.019500
+Gyro Y: 0.202800
+Gyro Z: 98.365800
+Count: 86Accel X: 50.524500
+Accel Y: 14.227200
+Accel Z: 22.230000
+
+Gyro X: 0.058500
+Gyro Y: 0.183300
+Gyro Z: 97.893900
+Count: 87Accel X: 50.524500
+Accel Y: 14.461200
+Accel Z: 22.027200
+
+Gyro X: 0.117000
+Gyro Y: 0.210600
+Gyro Z: 98.412600
+Count: 88Accel X: 50.524500
+Accel Y: 14.367600
+Accel Z: 21.730800
+
+Gyro X: 0.070200
+Gyro Y: 0.109200
+Gyro Z: 97.940700
+Count: 89Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 21.980400
+
+Gyro X: 100.378200
+Gyro Y: 0.167700
+Gyro Z: 98.447700
+Count: 90Accel X: 50.524500
+Accel Y: 14.289600
+Accel Z: 21.886800
+
+Gyro X: 100.436700
+Gyro Y: 0.124800
+Gyro Z: 98.463300
+Count: 91Accel X: 50.524500
+Accel Y: 14.086800
+Accel Z: 21.777600
+
+Gyro X: 100.436700
+Gyro Y: 0.042900
+Gyro Z: 97.948500
+Count: 92Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.777600
+
+Gyro X: 0.097500
+Gyro Y: 0.257400
+Gyro Z: 97.913400
+Count: 93Accel X: 50.524500
+Accel Y: 14.180400
+Accel Z: 22.042800
+
+Gyro X: 0.058500
+Gyro Y: 0.101400
+Gyro Z: 97.913400
+Count: 94Accel X: 50.524500
+Accel Y: 14.461200
+Accel Z: 21.762000
+
+Gyro X: 0.117000
+Gyro Y: 0.081900
+Gyro Z: 98.365800
+Count: 95Accel X: 50.524500
+Accel Y: 14.508000
+Accel Z: 21.699600
+
+Gyro X: 0.031200
+Gyro Y: 0.081900
+Gyro Z: 98.455500
+Count: 96Accel X: 50.524500
+Accel Y: 14.445600
+Accel Z: 22.136400
+
+Gyro X: 0.078000
+Gyro Y: 0.015600
+Gyro Z: 97.940700
+Count: 97Accel X: 50.524500
+Accel Y: 14.414400
+Accel Z: 21.949200
+
+Gyro X: 0.035100
+Gyro Y: 0.000000
+Gyro Z: 97.890000
+Count: 98Accel X: 50.524500
+Accel Y: 14.196000
+Accel Z: 21.684000
+
+Gyro X: 100.444500
+Gyro Y: 0.113100
+Gyro Z: 98.065500
+Count: 99Accel X: 50.524500
+Accel Y: 14.274000
+Accel Z: 21.730800
+
+Gyro X: 100.417200
+Gyro Y: 0.144300
+Gyro Z: 97.897800
+Count: 100Accel X: 50.524500
+Accel Y: 14.430000
+Accel Z: 21.746400
+
+Gyro X: 100.389900
+Gyro Y: 0.078000
+Gyro Z: 98.455500
+Count: 101Accel X: 50.524500
+Accel Y: 14.367600
+Accel Z: 21.543600
+
+Gyro X: 0.019500
+Gyro Y: 0.074100
+Gyro Z: 97.929000
+Count: 102Accel X: 50.524500
+Accel Y: 14.461200
+Accel Z: 21.855600
+
+Gyro X: 100.382100
+Gyro Y: 0.062400
+Gyro Z: 97.952400
+Count: 103Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 22.042800
+
+Gyro X: 0.120900
+Gyro Y: 0.144300
+Gyro Z: 97.991400
+Count: 104Accel X: 50.524500
+Accel Y: 14.196000
+Accel Z: 21.840000
+
+Gyro X: 0.031200
+Gyro Y: 0.136500
+Gyro Z: 97.893900
+Count: 105Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 21.762000
+
+Gyro X: 100.440600
+Gyro Y: 0.078000
+Gyro Z: 98.319000
+Count: 106Accel X: 50.524500
+Accel Y: 14.274000
+Accel Z: 21.465600
+
+Gyro X: 100.405500
+Gyro Y: 0.085800
+Gyro Z: 98.424300
+Count: 107Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 22.089600
+
+Gyro X: 0.101400
+Gyro Y: 0.195000
+Gyro Z: 97.890000
+Count: 108Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 22.136400
+
+Gyro X: 100.405500
+Gyro Y: 100.444500
+Gyro Z: 97.893900
+Count: 109Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 21.996000
+
+Gyro X: 0.109200
+Gyro Y: 0.226200
+Gyro Z: 98.424300
+Count: 110Accel X: 50.524500
+Accel Y: 14.305200
+Accel Z: 22.011600
+
+Gyro X: 100.432800
+Gyro Y: 0.187200
+Gyro Z: 98.116200
+Count: 111Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 21.964800
+
+Gyro X: 0.117000
+Gyro Y: 0.070200
+Gyro Z: 98.393100
+Count: 112Accel X: 50.524500
+Accel Y: 14.336400
+Accel Z: 21.918000
+
+Gyro X: 0.085800
+Gyro Y: 0.128700
+Gyro Z: 98.447700
+Count: 113Accel X: 50.524500
+Accel Y: 14.367600
+Accel Z: 21.668400
+
+Gyro X: 100.444500
+Gyro Y: 0.081900
+Gyro Z: 97.956300
+Count: 114Accel X: 50.524500
+Accel Y: 14.336400
+Accel Z: 21.777600
+
+Gyro X: 100.428900
+Gyro Y: 0.085800
+Gyro Z: 98.326800
+Count: 115Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 22.058400
+
+Gyro X: 0.031200
+Gyro Y: 0.078000
+Gyro Z: 98.475000
+Count: 116Accel X: 50.524500
+Accel Y: 14.118000
+Accel Z: 22.167600
+
+Gyro X: 0.070200
+Gyro Y: 0.066300
+Gyro Z: 97.940700
+Count: 117Accel X: 50.524500
+Accel Y: 14.492400
+Accel Z: 22.370400
+
+Gyro X: 0.113100
+Gyro Y: 0.046800
+Gyro Z: 98.447700
+Count: 118Accel X: 50.524500
+Accel Y: 14.227200
+Accel Z: 21.746400
+
+Gyro X: 0.015600
+Gyro Y: 0.027300
+Gyro Z: 97.897800
+Count: 119Accel X: 50.524500
+Accel Y: 14.445600
+Accel Z: 21.902400
+
+Gyro X: 0.066300
+Gyro Y: 0.195000
+Gyro Z: 97.909500
+Count: 120Accel X: 50.524500
+Accel Y: 14.352000
+Accel Z: 22.230000
+
+Gyro X: 100.432800
+Gyro Y: 0.128700
+Gyro Z: 98.241000
+Count: 121Accel X: 50.524500
+Accel Y: 14.211600
+Accel Z: 21.606000
+
+Gyro X: 100.432800
+Gyro Y: 0.054600
+Gyro Z: 98.373600
+Count: 122Accel X: 50.524500
+Accel Y: 14.164800
+Accel Z: 22.011600
+
+Gyro X: 0.109200
+Gyro Y: 0.011700
+Gyro Z: 98.400900
+Count: 123Accel X: 50.524500
+Accel Y: 14.445600
+Accel Z: 21.808800
+
+Gyro X: 0.027300
+Gyro Y: 0.140400
+Gyro Z: 98.361900
+Count: 124Accel X: 50.524500
+Accel Y: 14.242800
+Accel Z: 21.980400
+
+Gyro X: 0.093600
+Gyro Y: 0.105300
+Gyro Z: 97.909500
+Count: 125Accel X: 50.524500
+Accel Y: 14.492400
+Accel Z: 21.980400
+
+Gyro X: 0.070200
+Gyro Y: 0.062400
+Gyro Z: 97.960200
+Count: 126Accel X: 50.524500
+Accel Y: 14.305200
+Accel Z: 21.949200
+
+Gyro X: 100.417200
+Gyro Y: 0.163800
+Gyro Z: 98.463300
+Count: 127Accel X: 50.524500
+Accel Y: 14.227200
+Accel Z: 21.933600
+
+Gyro X: 0.070200
+Gyro Y: 0.101400
+Gyro Z: 97.905600
+Count: 128Accel X: 50.524500
+Accel Y: 14.102400
+Accel Z: 21.964800
+
+Gyro X: 0.035100
+Gyro Y: 0.054600
+Gyro Z: 98.416500
+Count: 129Accel X: 50.524500
+Accel Y: 14.180400
+Accel Z: 22.042800
+
+Gyro X: 100.409400
+Gyro Y: 0.210600
+Gyro Z: 98.447700
+Count: 130Accel X: 50.524500
+Accel Y: 14.430000
+Accel Z: 21.933600
+
+Gyro X: 0.015600
+Gyro Y: 0.050700
+Gyro Z: 98.432100
+Count: 131Accel X: 50.524500
+Accel Y: 14.289600
+Accel Z: 21.465600
+
+Gyro X: 100.425000
+Gyro Y: 0.074100
+Gyro Z: 98.295600
+Count: 132Accel X: 50.524500
+Accel Y: 14.305200
+Accel Z: 21.980400
+
+Gyro X: 100.425000
+Gyro Y: 0.214500
+Gyro Z: 97.995300
+Count: 133Accel X: 50.524500
+Accel Y: 14.383200
+Accel Z: 21.840000
+
+Gyro X: 0.019500
+Gyro Y: 0.261300
+Gyro Z: 98.319000
+Count: 134Accel X: 50.524500
+Accel Y: 14.336400
+Accel Z: 22.058400
+
+Gyro X: 0.093600
+Gyro Y: 0.105300
+Gyro Z: 98.354100
+Count: 135Accel X: 50.524500
+Accel Y: 14.258400
+Accel Z: 22.042800
+
+Gyro X: 100.413300
+Gyro Y: 0.062400
+Gyro Z: 98.377500
+Count: 136Accel X: 50.524500
+Accel Y: 14.211600
+Accel Z: 21.684000
+
+Gyro X: 0.023400
+Gyro Y: 0.152100
+Gyro Z: 97.932900
+Count: 137Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.590400
+
+Gyro X: 0.035100
+Gyro Y: 0.315900
+Gyro Z: 97.917300
+Count: 138Accel X: 50.524500
+Accel Y: 14.445600
+Accel Z: 21.902400
+
+Gyro X: 0.035100
+Gyro Y: 0.163800
+Gyro Z: 98.268300
+Count: 139Accel X: 50.524500
+Accel Y: 14.367600
+Accel Z: 21.996000
+
+Gyro X: 0.015600
+Gyro Y: 0.144300
+Gyro Z: 98.319000
+Count: 140Accel X: 50.524500
+Accel Y: 14.508000
+Accel Z: 21.528000
+
+Gyro X: 0.003900
+Gyro Y: 0.085800
+Gyro Z: 97.983600
+Count: 141Accel X: 50.524500
+Accel Y: 14.523600
+Accel Z: 21.543600
+
+Gyro X: 0.042900
+Gyro Y: 0.066300
+Gyro Z: 98.003100
+Count: 142Accel X: 50.524500
+Accel Y: 14.211600
+Accel Z: 21.746400
+
+Gyro X: 0.019500
+Gyro Y: 0.062400
+Gyro Z: 97.964100
+Count: 143Accel X: 50.524500
+Accel Y: 14.118000
+Accel Z: 22.198800
+
+Gyro X: 100.378200
+Gyro Y: 0.015600
+Gyro Z: 97.890000
+Count: 144Accel X: 50.524500
+Accel Y: 14.258400
+Accel Z: 21.996000
+
+Gyro X: 0.031200
+Gyro Y: 0.249600
+Gyro Z: 97.905600
+Count: 145Accel X: 50.524500
+Accel Y: 14.102400
+Accel Z: 21.777600
+
+Gyro X: 0.000000
+Gyro Y: 0.050700
+Gyro Z: 98.385300
+Count: 146Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 22.011600
+
+Gyro X: 0.066300
+Gyro Y: 0.058500
+Gyro Z: 98.486700
+Count: 147Accel X: 50.524500
+Accel Y: 14.274000
+Accel Z: 21.980400
+
+Gyro X: 100.409400
+Gyro Y: 0.081900
+Gyro Z: 98.400900
+Count: 148Accel X: 50.524500
+Accel Y: 14.274000
+Accel Z: 22.027200
+
+Gyro X: 0.000000
+Gyro Y: 0.054600
+Gyro Z: 97.979700
+Count: 149Accel X: 50.524500
+Accel Y: 14.632800
+Accel Z: 22.136400
+
+Gyro X: 0.039000
+Gyro Y: 0.085800
+Gyro Z: 97.925100
+Count: 150Accel X: 50.524500
+Accel Y: 14.164800
+Accel Z: 22.042800
+
+Gyro X: 0.023400
+Gyro Y: 0.191100
+Gyro Z: 97.925100
+Count: 151Accel X: 50.524500
+Accel Y: 14.071200
+Accel Z: 22.214400
+
+Gyro X: 0.058500
+Gyro Y: 0.097500
+Gyro Z: 98.443800
+Count: 152Accel X: 50.524500
+Accel Y: 14.367600
+Accel Z: 21.574800
+
+Gyro X: 100.370400
+Gyro Y: 0.144300
+Gyro Z: 98.467200
+Count: 153Accel X: 50.524500
+Accel Y: 14.554800
+Accel Z: 22.074000
+
+Gyro X: 0.046800
+Gyro Y: 0.198900
+Gyro Z: 98.389200
+Count: 154Accel X: 50.524500
+Accel Y: 14.320800
+Accel Z: 21.528000
+
+Gyro X: 0.120900
+Gyro Y: 0.120900
+Gyro Z: 97.940700
+Count: 155Accel X: 50.524500
+Accel Y: 14.258400
+Accel Z: 21.964800
+
+Gyro X: 0.023400
+Gyro Y: 0.058500
+Gyro Z: 98.436000
+Count: 156Accel X: 50.524500
+Accel Y: 14.398800
+Accel Z: 21.886800
+
+Gyro X: 0.128700
+Gyro Y: 0.058500
+Gyro Z: 98.346300
+Count: 157Accel X: 50.524500
+Accel Y: 14.570400
+Accel Z: 21.668400
+
+Gyro X: 100.378200
+Gyro Y: 0.027300
+Gyro Z: 98.361900
+Count: 158Accel X: 50.524500
+Accel Y: 14.461200
+Accel Z: 21.746400
+
+Gyro X: 0.171600
+Gyro Y: 0.175500
+Gyro Z: 98.342400
+Count: 159Accel X: 50.524500
+Accel Y: 14.414400
+Accel Z: 21.699600
+
+Gyro X: 100.428900
+Gyro Y: 0.117000
+Gyro Z: 98.346300
+Count: 160Accel X: 50.524500
+Accel Y: 14.383200
+Accel Z: 21.918000
+
+Gyro X: 100.417200
+Gyro Y: 0.019500
+Gyro Z: 97.944600
+Count: 161Accel X: 50.524500
+Accel Y: 14.539200
+Accel Z: 21.637200
+
+Gyro X: 0.058500
+Gyro Y: 0.066300
+Gyro Z: 98.471100
+Count: 162Accel X: 50.524500
+Accel Y: 14.383200
+Accel Z: 22.105200
+
+Gyro X: 0.058500
+Gyro Y: 0.144300
+Gyro Z: 97.975800
+Count: 163Accel X: 50.524500
+Accel Y: 14.274000
+Accel Z: 21.637200
+
+Gyro X: 0.019500
+Gyro Y: 0.066300
+Gyro Z: 98.416500
+Count: 164Accel X: 50.524500
+Accel Y: 14.476800
+Accel Z: 22.214400
+
+Gyro X: 0.113100
+Gyro Y: 0.171600
+Gyro Z: 98.490600
+Count: 165Accel X: 50.524500
+Accel Y: 14.461200
+Accel Z: 21.808800
+
+Gyro X: 100.389900
+Gyro Y: 0.117000
+Gyro Z: 97.890000
+Count: 166Accel X: 50.524500
+Accel Y: 14.414400
+Accel Z: 21.450000
+
+Gyro X: 0.027300
+Gyro Y: 0.249600
+Gyro Z: 97.964100

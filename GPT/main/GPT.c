@@ -18,47 +18,32 @@
 #include "esp_netif.h"
 #include "esp_http_server.h"
 #include "esp_wifi.h"
-#include "esp_wpa2.h"
+//#include "esp_eap_client.h"
+#include "esp_log.h"
 #include "network.h"
+#include "HTML.h"
 
 
 #define GPIO_OUT_PIN_SEL    (1ULL << GPIO_NUM_16)
 #define GPIO_IN_PIN_SEL    (1ULL << GPIO_NUM_17)
 
-
-static QueueHandle_t gpio_evt_queue = NULL;
 bool StartData = false;
+bool StartClock = false;
 
 
 // struct to store sensor data
 struct sensor_data {
-    float test;
+    short gyroscopeX[302];
+    short gyroscopeY[302];
+    short gyroscopeZ[302];
+
+    short accelerometerX[302];
+    short accelerometerY[302];
+    short accelerometerZ[302];
 };
 
-
-// GPIO ISR
-static void IRAM_ATTR ButtonISR(void* arg)
-{
-    // send a gpio task to be handled by the specified function: LED_Control
-    uint32_t gpio_num = (uint32_t) arg;
-    xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
-}
-
-
-// Function that triggers when GPIO ISR is called
-void IMU_Control(void* params)
-{
-    // function to toggle the LED
-    uint32_t pinNumber;
-    for (;;) {
-        if (xQueueReceive(gpio_evt_queue, &pinNumber, portMAX_DELAY)) {
-            printf("GPIO Interrupt Working");
-            gpio_set_level(GPIO_NUM_16, 1);
-            vTaskDelay(100);
-            gpio_set_level(GPIO_NUM_16, 0);
-        }
-    }
-}
+// instantiate global struct for sensor data
+struct sensor_data SensorData;
 
 
 static void alarm_event_handler(void* arg)
@@ -104,7 +89,7 @@ void wifi_connection()
 
     esp_netif_create_default_wifi_sta();
     wifi_init_config_t wifi_initiation = WIFI_INIT_CONFIG_DEFAULT();
-    esp_wifi_init(&wifi_initiation); 
+    esp_wifi_init(&wifi_initiation);
     
     esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, wifi_event_handler, NULL);
     esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, wifi_event_handler, NULL);
@@ -112,56 +97,125 @@ void wifi_connection()
     wifi_config_t wifi_configuration = {
         .sta = {
             .ssid = SSID,
-            .password = PASS}};
+            /*
+            .pmf_cfg = {
+                .required = false,
+                .capable = true
+            }
+            */
+            .password = PASS
+        }};
     
     esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_configuration);
     esp_wifi_set_mode(WIFI_MODE_STA);
 
-    esp_wpa2_config_t config = WPA2_CONFIG_INIT_DEFAULT();
-
+    /*
     // set extra parameters for enterprise WiFi config
-    esp_wifi_sta_wpa2_ent_set_identity((uint8_t *)EAP_ID, strlen(EAP_ID));
-    esp_wifi_sta_wpa2_ent_set_username((uint8_t *)EAP_USER, strlen(EAP_USER));
-    esp_wifi_sta_wpa2_ent_set_password((uint8_t *)EAP_PASS, strlen(EAP_PASS));
-    esp_wifi_sta_wpa2_ent_enable(&config);
-    
+    ESP_ERROR_CHECK(esp_eap_client_set_identity((uint8_t *)EAP_ID, strlen(EAP_ID)));
+    ESP_ERROR_CHECK(esp_eap_client_set_username((uint8_t *)EAP_USER, strlen(EAP_USER)));
+    ESP_ERROR_CHECK(esp_eap_client_set_password((uint8_t *)EAP_PASS, strlen(EAP_PASS)));
+    ESP_ERROR_CHECK(esp_eap_client_set_ca_cert((uint8_t *)ROOTCERT, strlen(ROOTCERT)));
+    ESP_ERROR_CHECK(esp_eap_client_set_ttls_phase2_method(ESP_EAP_TTLS_PHASE2_MSCHAPV2));
+    ESP_ERROR_CHECK(esp_wifi_sta_enterprise_enable());
+    */
+
     esp_wifi_start();
     esp_wifi_connect();
 }
 
 
-// hanlder for POST calls
-static esp_err_t post_handler(httpd_req_t *req)
+// handler for GET call that has the main page
+static esp_err_t get_handler_main(httpd_req_t *req)
 {
-    // switch the boolean to start the data collection via polling
-    StartData = true;
-
-    // instantiate alarm timer
-    const esp_timer_create_args_t alarm_timer_args = {
-            .callback = &alarm_event_handler,
-            .name = "DataAlarm"
-    };
-
-    esp_timer_handle_t alarm_timer;
-    esp_timer_create(&alarm_timer_args, &alarm_timer);
-
-    // start a timer for five seconds
-    esp_timer_start_once(alarm_timer, 5000000);
-
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-
-    httpd_resp_send(req, "Data Collection Initiated", HTTPD_RESP_USE_STRLEN);
+    const char resp[] = HTML;
+    httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
     return ESP_OK;
-
 }
 
 
-// handler for GET calls
-static esp_err_t get_handler(httpd_req_t *req)
+// hanlder for GET call that initiates data collection
+static esp_err_t get_handler_start(httpd_req_t *req)
 {
-    //vTaskDelay(1000 / portTICK_PERIOD_MS);
-    const char resp[] = "URI GET Response";
+    // switch the boolean to start the data collection via polling
+    StartData = true;
+    StartClock = true;
+
+    const char resp[] = HTML;
     httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
+
+    return ESP_OK;
+}
+
+
+static esp_err_t get_handler_gyroX(httpd_req_t *req)
+{
+    // allocate response buffer
+    char resp[2000];
+
+    // store sensor data in the buffer separated by commas
+    int rind = 0;
+    for (unsigned int i = 0; i < 300; i++)
+    {
+        snprintf(resp+rind, 3, "%hi", SensorData.gyroscopeX[i]);
+        snprintf(resp+rind+3, 2, "%c", ',');
+        rind += 5;
+    }
+
+    httpd_resp_send(req, resp, rind);
+    return ESP_OK;
+}
+
+static esp_err_t get_handler_gyroY(httpd_req_t *req)
+{
+    // allocate response buffer
+    char resp[2000];
+
+    // store sensor data in the buffer separated by commas
+    int rind = 0;
+    for (unsigned int i = 0; i < 300; i++)
+    {
+        snprintf(resp+rind, 3, "%hi", SensorData.gyroscopeY[i]);
+        snprintf(resp+rind+3, 2, "%c", ',');
+        rind += 5;
+    }
+
+    httpd_resp_send(req, resp, rind);
+    return ESP_OK;
+}
+
+static esp_err_t get_handler_accelY(httpd_req_t *req)
+{
+    // allocate response buffer
+    char resp[2000];
+
+    // store sensor data in the buffer separated by commas
+    int rind = 0;
+    for (unsigned int i = 0; i < 300; i++)
+    {
+        snprintf(resp+rind, 3, "%hi", SensorData.accelerometerY[i]);
+        snprintf(resp+rind+3, 2, "%c", ',');
+        rind += 5;
+    }
+
+    httpd_resp_send(req, resp, rind);
+    return ESP_OK;
+}
+
+static esp_err_t get_handler_accelZ(httpd_req_t *req)
+{
+    // allocate response buffer
+    char resp[2000];
+
+    // store sensor data in the buffer separated by commas
+    int rind = 0;
+    for (unsigned int i = 0; i < 300; i++)
+    {
+        snprintf(resp+rind, 3, "%hi", SensorData.accelerometerZ[i]);
+        snprintf(resp+rind+3, 2, "%c", ',');
+        rind += 5;
+    }
+
+    httpd_resp_send(req, resp, rind);
     return ESP_OK;
 }
 
@@ -172,22 +226,54 @@ void server_initiation()
     httpd_handle_t server_handle = NULL;
     httpd_start(&server_handle, &server_config);
 
-    httpd_uri_t uri_post = {
-        .uri = "/start",
-        .method = HTTP_POST,
-        .handler = post_handler,
-        .user_ctx = NULL
-    };
-
-    httpd_uri_t uri_get = {
-        .uri = "/view",
+    httpd_uri_t uri_get_main = {
+        .uri = "/",
         .method = HTTP_GET,
-        .handler = get_handler,
+        .handler = get_handler_main,
         .user_ctx = NULL
     };
 
-    httpd_register_uri_handler(server_handle, &uri_post);
-    httpd_register_uri_handler(server_handle, &uri_get);
+    httpd_uri_t uri_get_start = {
+        .uri = "/start",
+        .method = HTTP_GET,
+        .handler = get_handler_start,
+        .user_ctx = NULL
+    };
+
+    httpd_uri_t uri_get_gyroX = {
+        .uri = "/gyrox",
+        .method = HTTP_GET,
+        .handler = get_handler_gyroX,
+        .user_ctx = NULL
+    };
+
+    httpd_uri_t uri_get_gyroY = {
+        .uri = "/gyroy",
+        .method = HTTP_GET,
+        .handler = get_handler_gyroY,
+        .user_ctx = NULL
+    };
+
+    httpd_uri_t uri_get_accelY = {
+        .uri = "/accely",
+        .method = HTTP_GET,
+        .handler = get_handler_accelY,
+        .user_ctx = NULL
+    };
+
+    httpd_uri_t uri_get_accelZ = {
+        .uri = "/accelz",
+        .method = HTTP_GET,
+        .handler = get_handler_accelZ,
+        .user_ctx = NULL
+    };
+
+    httpd_register_uri_handler(server_handle, &uri_get_main);
+    httpd_register_uri_handler(server_handle, &uri_get_start);
+    httpd_register_uri_handler(server_handle, &uri_get_gyroX);
+    httpd_register_uri_handler(server_handle, &uri_get_gyroY);
+    httpd_register_uri_handler(server_handle, &uri_get_accelY);
+    httpd_register_uri_handler(server_handle, &uri_get_accelZ);
 }
 
 
@@ -210,28 +296,9 @@ void app_main(void)
         //disable pull-up mode
         .pull_up_en = 0
     };
+
     //configure GPIO with the given settings
     gpio_config(&io_conf);
-
-    //interrupt of rising edge
-    io_conf.intr_type = GPIO_INTR_POSEDGE;
-    //bit mask of the input pin GPIO17
-    io_conf.pin_bit_mask = GPIO_IN_PIN_SEL;
-    //set as input mode
-    io_conf.mode = GPIO_MODE_INPUT;
-    //enable pull-up mode
-    io_conf.pull_up_en = 1;
-    gpio_config(&io_conf);
-
-    //create a queue to handle gpio event from isr
-    gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
-    //start gpio task
-    xTaskCreate(IMU_Control, "IMU_Control", 2048, NULL, 10, NULL);
-
-    //install gpio isr service
-    gpio_install_isr_service(ESP_INTR_FLAG_LOWMED);
-    //hook isr handler for specific gpio pin
-    gpio_isr_handler_add(GPIO_NUM_17, ButtonISR, (void*) GPIO_NUM_17);
 
     // create SPI handle
     spi_device_handle_t handle;
@@ -276,12 +343,38 @@ void app_main(void)
     spi_transaction_t t;
     memset(&t, 0, sizeof(t));
 
-
     printf("Master input:\n");
-    int count = 1;
+    int index = 0;
     while (1)
     {
-        // if the POST call initiates data collection
+        // if the GET call initiates data collection, start timer
+        if (StartClock)
+        {
+            // instantiate alarm timer
+            const esp_timer_create_args_t alarm_timer_args = {
+                    .callback = &alarm_event_handler,
+                    .name = "DataAlarm"
+            };
+
+            esp_timer_handle_t alarm_timer;
+            esp_timer_create(&alarm_timer_args, &alarm_timer);
+
+            // send three buzzes through the vibrating motor
+            for (unsigned int i = 0; i < 3; i++)
+            {
+                vTaskDelay(300);
+                gpio_set_level(GPIO_NUM_16, 1);
+                vTaskDelay(100);
+                gpio_set_level(GPIO_NUM_16, 0);
+            }
+
+            // start a timer for three seconds
+            esp_timer_start_once(alarm_timer, 3000000);
+
+            StartClock = false;
+        }
+
+        // if the GET call initiates data collection
         if (StartData)
         {
             // use the SPI bus for data transmissions
@@ -293,6 +386,22 @@ void app_main(void)
             t.rxlength = 0;
             // poll for the data until complete
             spi_device_polling_transmit(handle, &t);
+
+            // store gyroscope data in sensor data struct
+            SensorData.accelerometerX[index] = ((short)(recvbuf[0] * .39));
+            SensorData.accelerometerY[index] = ((short)(recvbuf[2] * .39));
+            SensorData.accelerometerZ[index] = ((short)(recvbuf[4] * .39));
+
+            SensorData.gyroscopeX[index] = ((short)(recvbuf[8] * .39));
+            SensorData.gyroscopeY[index] = ((short)(recvbuf[10] * .39));
+            SensorData.gyroscopeZ[index] = ((short)(recvbuf[12] * .39));
+
+            printf("Gyro X: %hi\n", (((short)(recvbuf[8] * .39))));
+            printf("Gyro Y: %hi\n", (((short)(recvbuf[10] * .39))));
+            printf("Gyro Z: %hi\n\n", (((short)(recvbuf[12] * .39))));
+            
+
+            /*
             printf("Accel X: %f\n", (((float)recvbuf[0] * .39) + ((float)recvbuf[1] * .0039)));
             printf("Accel Y: %f\n", (((float)recvbuf[2] * .39) + ((float)recvbuf[3] * .0039)));
             printf("Accel Z: %f\n\n", (((float)recvbuf[4] * .39) + ((float)recvbuf[5] * .0039)));
@@ -300,14 +409,19 @@ void app_main(void)
             printf("Gyro X: %f\n", (((float)recvbuf[8] * .39) + ((float)recvbuf[9] * .0039)));
             printf("Gyro Y: %f\n", (((float)recvbuf[10] * .39) + ((float)recvbuf[11] * .0039)));
             printf("Gyro Z: %f\n", (((float)recvbuf[12] * .39) + ((float)recvbuf[13] * .0039)));
+            */
 
             // wait and release the SPI bus to free resources before next run
-            vTaskDelay(1);
+            //vTaskDelay(1);
+
             spi_device_release_bus(handle);
-            printf("Count: %i", count);
-            count++;
+            index++;
+            printf("%i\n", index);
         }
-        vTaskDelay(2);
+        else{
+            index = 0;
+        }
+        vTaskDelay(1);
     }
     
     //Never reached.

@@ -1,0 +1,1606 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7080
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Feb 15 2024 22:04:49[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=237e4h (145380) map[0m
+[0;32mI (157) esp_image: segment 1: paddr=0003380c vaddr=3ffb0000 size=03c14h ( 15380) load[0m
+[0;32mI (163) esp_image: segment 2: paddr=00037428 vaddr=40080000 size=08bf0h ( 35824) load[0m
+[0;32mI (178) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=8cd8ch (576908) map[0m
+[0;32mI (387) esp_image: segment 4: paddr=000ccdb4 vaddr=40088bf0 size=0eb7ch ( 60284) load[0m
+[0;32mI (424) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (424) boot: Disabling RNG early entropy source...[0m
+[0;32mI (435) cpu_start: Multicore app[0m
+[0;32mI (436) cpu_start: Pro cpu up.[0m
+[0;32mI (436) cpu_start: Starting app cpu, entry point is 0x4008149c[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (454) cpu_start: Pro cpu start user code[0m
+[0;32mI (454) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (454) cpu_start: Application information:[0m
+[0;32mI (458) cpu_start: Project name:     GPT[0m
+[0;32mI (463) cpu_start: App version:      95770a4-dirty[0m
+[0;32mI (468) cpu_start: Compile time:     Feb 19 2024 13:31:57[0m
+[0;32mI (475) cpu_start: ELF file SHA256:  1bd1ae720a870e72...[0m
+[0;32mI (481) cpu_start: ESP-IDF:          v5.1.2[0m
+[0;32mI (485) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (490) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (495) cpu_start: Chip rev:         v3.0[0m
+[0;32mI (500) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (507) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (513) heap_init: At 3FFB8B08 len 000274F8 (157 KiB): DRAM[0m
+[0;32mI (519) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (525) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (532) heap_init: At 4009776C len 00008894 (34 KiB): IRAM[0m
+[0;32mI (540) spi_flash: detected chip: generic[0m
+[0;32mI (543) spi_flash: flash io: dio[0m
+[0;32mI (548) app_start: Starting scheduler on CPU0[0m
+[0;32mI (552) app_start: Starting scheduler on CPU1[0m
+[0;32mI (552) main_task: Started on CPU0[0m
+[0;32mI (562) main_task: Calling app_main()[0m
+I (602) wifi:wifi driver task: 3ffc0ad8, prio:23, stack:6656, core=0
+I (612) wifi:wifi firmware version: 91b9630
+I (612) wifi:wifi certification version: v7.0
+I (612) wifi:config NVS flash: enabled
+I (612) wifi:config nano formating: disabled
+I (612) wifi:Init data frame dynamic rx buffer num: 32
+I (622) wifi:Init static rx mgmt buffer num: 5
+I (622) wifi:Init management short buffer num: 32
+I (632) wifi:Init dynamic tx buffer num: 32
+I (632) wifi:Init static rx buffer size: 1600
+I (642) wifi:Init static rx buffer num: 10
+I (642) wifi:Init dynamic rx buffer num: 32
+[0;32mI (642) wifi_init: rx ba win: 6[0m
+[0;32mI (652) wifi_init: tcpip mbox: 32[0m
+[0;32mI (652) wifi_init: udp mbox: 6[0m
+[0;32mI (652) wifi_init: tcp mbox: 6[0m
+[0;32mI (662) wifi_init: tcp tx win: 5744[0m
+[0;32mI (662) wifi_init: tcp rx win: 5744[0m
+[0;32mI (672) wifi_init: tcp mss: 1440[0m
+[0;32mI (672) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (672) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (682) phy_init: phy_version 4780,16b31a7,Sep 22 2023,20:42:16[0m
+I (762) wifi:mode : sta (40:22:d8:ea:1f:20)
+I (762) wifi:enable tsf
+WiFi connecting WIFI_EVENT_STA_START ... 
+[0;32mI (772) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+Master input:
+I (782) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+I (782) wifi:state: init -> auth (b0)
+I (792) wifi:state: auth -> assoc (0)
+I (802) wifi:state: assoc -> run (10)
+I (842) wifi:connected with XavierV (2), aid = 2, channel 1, BW20, bssid = 3a:34:05:9b:a2:e0
+I (842) wifi:security: WPA2-PSK, phy: bgn, rssi: -37
+I (852) wifi:pm start, type: 1
+
+WiFi connected WIFI_EVENT_STA_CONNECTED ... 
+I (862) wifi:<ba-add>idx:0 (ifx:0, 3a:34:05:9b:a2:e0), tid:0, ssn:2, winSize:64
+I (902) wifi:AP's beacon interval = 102400 us, DTIM period = 3
+[0;32mI (1852) esp_netif_handlers: sta ip: 172.20.10.4, mask: 255.255.255.240, gw: 172.20.10.1[0m
+WiFi got IP ... 
+
+Gyro X: 97
+Gyro Y: 96
+Gyro Z: 97
+
+1
+Gyro X: 97
+Gyro Y: 97
+Gyro Z: 97
+
+2
+Gyro X: 97
+Gyro Y: 96
+Gyro Z: 97
+
+3
+Gyro X: 99
+Gyro Y: 95
+Gyro Z: 97
+
+4
+Gyro X: 99
+Gyro Y: 95
+Gyro Z: 97
+
+5
+Gyro X: 0
+Gyro Y: 95
+Gyro Z: 97
+
+6
+Gyro X: 1
+Gyro Y: 94
+Gyro Z: 97
+
+7
+Gyro X: 2
+Gyro Y: 93
+Gyro Z: 97
+
+8
+Gyro X: 3
+Gyro Y: 93
+Gyro Z: 97
+
+9
+Gyro X: 3
+Gyro Y: 93
+Gyro Z: 97
+
+10
+Gyro X: 5
+Gyro Y: 94
+Gyro Z: 97
+
+11
+Gyro X: 7
+Gyro Y: 95
+Gyro Z: 97
+
+12
+Gyro X: 8
+Gyro Y: 97
+Gyro Z: 97
+
+13
+Gyro X: 10
+Gyro Y: 99
+Gyro Z: 97
+
+14
+Gyro X: 12
+Gyro Y: 1
+Gyro Z: 97
+
+15
+Gyro X: 14
+Gyro Y: 2
+Gyro Z: 97
+
+16
+Gyro X: 15
+Gyro Y: 4
+Gyro Z: 97
+
+17
+Gyro X: 15
+Gyro Y: 6
+Gyro Z: 97
+
+18
+Gyro X: 14
+Gyro Y: 8
+Gyro Z: 97
+
+19
+Gyro X: 14
+Gyro Y: 10
+Gyro Z: 97
+
+20
+Gyro X: 12
+Gyro Y: 11
+Gyro Z: 97
+
+21
+Gyro X: 10
+Gyro Y: 12
+Gyro Z: 97
+
+22
+Gyro X: 8
+Gyro Y: 12
+Gyro Z: 97
+
+23
+Gyro X: 6
+Gyro Y: 13
+Gyro Z: 97
+
+24
+Gyro X: 5
+Gyro Y: 15
+Gyro Z: 97
+
+25
+Gyro X: 3
+Gyro Y: 16
+Gyro Z: 97
+
+26
+Gyro X: 3
+Gyro Y: 17
+Gyro Z: 97
+
+27
+Gyro X: 2
+Gyro Y: 18
+Gyro Z: 97
+
+28
+Gyro X: 1
+Gyro Y: 19
+Gyro Z: 97
+
+29
+Gyro X: 1
+Gyro Y: 18
+Gyro Z: 97
+
+30
+Gyro X: 0
+Gyro Y: 17
+Gyro Z: 97
+
+31
+Gyro X: 0
+Gyro Y: 17
+Gyro Z: 97
+
+32
+Gyro X: 0
+Gyro Y: 16
+Gyro Z: 97
+
+33
+Gyro X: 0
+Gyro Y: 16
+Gyro Z: 97
+
+34
+Gyro X: 99
+Gyro Y: 16
+Gyro Z: 97
+
+35
+Gyro X: 97
+Gyro Y: 17
+Gyro Z: 97
+
+36
+Gyro X: 95
+Gyro Y: 17
+Gyro Z: 97
+
+37
+Gyro X: 92
+Gyro Y: 18
+Gyro Z: 97
+
+38
+Gyro X: 90
+Gyro Y: 17
+Gyro Z: 97
+
+39
+Gyro X: 89
+Gyro Y: 15
+Gyro Z: 97
+
+40
+Gyro X: 88
+Gyro Y: 14
+Gyro Z: 97
+
+41
+Gyro X: 87
+Gyro Y: 12
+Gyro Z: 97
+
+42
+Gyro X: 86
+Gyro Y: 11
+Gyro Z: 97
+
+43
+Gyro X: 85
+Gyro Y: 10
+Gyro Z: 97
+
+44
+Gyro X: 85
+Gyro Y: 10
+Gyro Z: 97
+
+45
+Gyro X: 85
+Gyro Y: 10
+Gyro Z: 97
+
+46
+Gyro X: 85
+Gyro Y: 9
+Gyro Z: 97
+
+47
+Gyro X: 86
+Gyro Y: 7
+Gyro Z: 97
+
+48
+Gyro X: 86
+Gyro Y: 5
+Gyro Z: 97
+
+49
+Gyro X: 87
+Gyro Y: 4
+Gyro Z: 97
+
+50
+Gyro X: 88
+Gyro Y: 2
+Gyro Z: 97
+
+51
+Gyro X: 88
+Gyro Y: 0
+Gyro Z: 97
+
+52
+Gyro X: 90
+Gyro Y: 98
+Gyro Z: 97
+
+53
+Gyro X: 91
+Gyro Y: 96
+Gyro Z: 97
+
+54
+Gyro X: 93
+Gyro Y: 94
+Gyro Z: 97
+
+55
+Gyro X: 93
+Gyro Y: 93
+Gyro Z: 97
+
+56
+Gyro X: 94
+Gyro Y: 92
+Gyro Z: 97
+
+57
+Gyro X: 95
+Gyro Y: 90
+Gyro Z: 97
+
+58
+Gyro X: 96
+Gyro Y: 88
+Gyro Z: 97
+
+59
+Gyro X: 98
+Gyro Y: 86
+Gyro Z: 97
+
+60
+Gyro X: 0
+Gyro Y: 84
+Gyro Z: 97
+
+61
+Gyro X: 1
+Gyro Y: 83
+Gyro Z: 97
+
+62
+Gyro X: 2
+Gyro Y: 82
+Gyro Z: 97
+
+63
+Gyro X: 3
+Gyro Y: 81
+Gyro Z: 97
+
+64
+Gyro X: 3
+Gyro Y: 82
+Gyro Z: 97
+
+65
+Gyro X: 3
+Gyro Y: 82
+Gyro Z: 97
+
+66
+Gyro X: 3
+Gyro Y: 82
+Gyro Z: 97
+
+67
+Gyro X: 2
+Gyro Y: 82
+Gyro Z: 97
+
+68
+Gyro X: 1
+Gyro Y: 82
+Gyro Z: 97
+
+69
+Gyro X: 0
+Gyro Y: 82
+Gyro Z: 97
+
+70
+Gyro X: 0
+Gyro Y: 82
+Gyro Z: 97
+
+71
+Gyro X: 99
+Gyro Y: 83
+Gyro Z: 97
+
+72
+Gyro X: 99
+Gyro Y: 84
+Gyro Z: 97
+
+73
+Gyro X: 0
+Gyro Y: 84
+Gyro Z: 97
+
+74
+Gyro X: 0
+Gyro Y: 84
+Gyro Z: 97
+
+75
+Gyro X: 0
+Gyro Y: 84
+Gyro Z: 97
+
+76
+Gyro X: 99
+Gyro Y: 85
+Gyro Z: 97
+
+77
+Gyro X: 99
+Gyro Y: 85
+Gyro Z: 97
+
+78
+Gyro X: 98
+Gyro Y: 87
+Gyro Z: 97
+
+79
+Gyro X: 97
+Gyro Y: 89
+Gyro Z: 97
+
+80
+Gyro X: 97
+Gyro Y: 92
+Gyro Z: 97
+
+81
+Gyro X: 97
+Gyro Y: 95
+Gyro Z: 97
+
+82
+Gyro X: 97
+Gyro Y: 98
+Gyro Z: 97
+
+83
+Gyro X: 96
+Gyro Y: 0
+Gyro Z: 97
+
+84
+Gyro X: 95
+Gyro Y: 2
+Gyro Z: 97
+
+85
+Gyro X: 94
+Gyro Y: 3
+Gyro Z: 97
+
+86
+Gyro X: 92
+Gyro Y: 3
+Gyro Z: 97
+
+87
+Gyro X: 90
+Gyro Y: 5
+Gyro Z: 97
+
+88
+Gyro X: 89
+Gyro Y: 7
+Gyro Z: 97
+
+89
+Gyro X: 88
+Gyro Y: 9
+Gyro Z: 97
+
+90
+Gyro X: 88
+Gyro Y: 11
+Gyro Z: 97
+
+91
+Gyro X: 89
+Gyro Y: 12
+Gyro Z: 97
+
+92
+Gyro X: 90
+Gyro Y: 14
+Gyro Z: 97
+
+93
+Gyro X: 91
+Gyro Y: 15
+Gyro Z: 97
+
+94
+Gyro X: 93
+Gyro Y: 16
+Gyro Z: 97
+
+95
+Gyro X: 93
+Gyro Y: 17
+Gyro Z: 97
+
+96
+Gyro X: 94
+Gyro Y: 18
+Gyro Z: 97
+
+97
+Gyro X: 93
+Gyro Y: 19
+Gyro Z: 97
+
+98
+Gyro X: 93
+Gyro Y: 19
+Gyro Z: 97
+
+99
+Gyro X: 92
+Gyro Y: 19
+Gyro Z: 97
+
+100
+Gyro X: 91
+Gyro Y: 17
+Gyro Z: 97
+
+101
+Gyro X: 90
+Gyro Y: 16
+Gyro Z: 97
+
+102
+Gyro X: 89
+Gyro Y: 15
+Gyro Z: 97
+
+103
+Gyro X: 89
+Gyro Y: 13
+Gyro Z: 97
+
+104
+Gyro X: 89
+Gyro Y: 11
+Gyro Z: 97
+
+105
+Gyro X: 90
+Gyro Y: 10
+Gyro Z: 97
+
+106
+Gyro X: 90
+Gyro Y: 8
+Gyro Z: 97
+
+107
+Gyro X: 90
+Gyro Y: 7
+Gyro Z: 97
+
+108
+Gyro X: 91
+Gyro Y: 6
+Gyro Z: 97
+
+109
+Gyro X: 93
+Gyro Y: 4
+Gyro Z: 97
+
+110
+Gyro X: 95
+Gyro Y: 3
+Gyro Z: 97
+
+111
+Gyro X: 98
+Gyro Y: 2
+Gyro Z: 97
+
+112
+Gyro X: 0
+Gyro Y: 2
+Gyro Z: 97
+
+113
+Gyro X: 1
+Gyro Y: 2
+Gyro Z: 97
+
+114
+Gyro X: 1
+Gyro Y: 1
+Gyro Z: 97
+
+115
+Gyro X: 1
+Gyro Y: 0
+Gyro Z: 97
+
+116
+Gyro X: 1
+Gyro Y: 99
+Gyro Z: 97
+
+117
+Gyro X: 0
+Gyro Y: 98
+Gyro Z: 97
+
+118
+Gyro X: 99
+Gyro Y: 97
+Gyro Z: 97
+
+119
+Gyro X: 98
+Gyro Y: 96
+Gyro Z: 97
+
+120
+Gyro X: 97
+Gyro Y: 95
+Gyro Z: 97
+
+121
+Gyro X: 97
+Gyro Y: 93
+Gyro Z: 97
+
+122
+Gyro X: 97
+Gyro Y: 92
+Gyro Z: 97
+
+123
+Gyro X: 97
+Gyro Y: 90
+Gyro Z: 97
+
+124
+Gyro X: 98
+Gyro Y: 88
+Gyro Z: 97
+
+125
+Gyro X: 99
+Gyro Y: 87
+Gyro Z: 97
+
+126
+Gyro X: 0
+Gyro Y: 86
+Gyro Z: 97
+
+127
+Gyro X: 2
+Gyro Y: 85
+Gyro Z: 97
+
+128
+Gyro X: 3
+Gyro Y: 84
+Gyro Z: 97
+
+129
+Gyro X: 3
+Gyro Y: 83
+Gyro Z: 97
+
+130
+Gyro X: 3
+Gyro Y: 82
+Gyro Z: 97
+
+131
+Gyro X: 3
+Gyro Y: 82
+Gyro Z: 97
+
+132
+Gyro X: 2
+Gyro Y: 82
+Gyro Z: 97
+
+133
+Gyro X: 2
+Gyro Y: 82
+Gyro Z: 97
+
+134
+Gyro X: 1
+Gyro Y: 81
+Gyro Z: 97
+
+135
+Gyro X: 1
+Gyro Y: 81
+Gyro Z: 97
+
+136
+Gyro X: 0
+Gyro Y: 82
+Gyro Z: 97
+
+137
+Gyro X: 0
+Gyro Y: 82
+Gyro Z: 97
+
+138
+Gyro X: 1
+Gyro Y: 82
+Gyro Z: 97
+
+139
+Gyro X: 2
+Gyro Y: 82
+Gyro Z: 97
+
+140
+Gyro X: 3
+Gyro Y: 83
+Gyro Z: 97
+
+141
+Gyro X: 3
+Gyro Y: 83
+Gyro Z: 97
+
+142
+Gyro X: 4
+Gyro Y: 85
+Gyro Z: 97
+
+143
+Gyro X: 5
+Gyro Y: 86
+Gyro Z: 97
+
+144
+Gyro X: 5
+Gyro Y: 88
+Gyro Z: 97
+
+145
+Gyro X: 5
+Gyro Y: 89
+Gyro Z: 97
+
+146
+Gyro X: 4
+Gyro Y: 92
+Gyro Z: 97
+
+147
+Gyro X: 3
+Gyro Y: 93
+Gyro Z: 97
+
+148
+Gyro X: 1
+Gyro Y: 95
+Gyro Z: 97
+
+149
+Gyro X: 0
+Gyro Y: 97
+Gyro Z: 97
+
+150
+Gyro X: 98
+Gyro Y: 99
+Gyro Z: 97
+
+151
+Gyro X: 96
+Gyro Y: 1
+Gyro Z: 97
+
+152
+Gyro X: 95
+Gyro Y: 3
+Gyro Z: 97
+
+153
+Gyro X: 94
+Gyro Y: 4
+Gyro Z: 97
+
+154
+Gyro X: 94
+Gyro Y: 5
+Gyro Z: 97
+
+155
+Gyro X: 94
+Gyro Y: 7
+Gyro Z: 97
+
+156
+Gyro X: 94
+Gyro Y: 8
+Gyro Z: 97
+
+157
+Gyro X: 95
+Gyro Y: 10
+Gyro Z: 97
+
+158
+Gyro X: 97
+Gyro Y: 12
+Gyro Z: 97
+
+159
+Gyro X: 98
+Gyro Y: 13
+Gyro Z: 97
+
+160
+Gyro X: 99
+Gyro Y: 15
+Gyro Z: 97
+
+161
+Gyro X: 99
+Gyro Y: 16
+Gyro Z: 97
+
+162
+Gyro X: 98
+Gyro Y: 17
+Gyro Z: 97
+
+163
+Gyro X: 96
+Gyro Y: 19
+Gyro Z: 97
+
+164
+Gyro X: 93
+Gyro Y: 19
+Gyro Z: 97
+
+165
+Gyro X: 91
+Gyro Y: 20
+Gyro Z: 97
+
+166
+Gyro X: 89
+Gyro Y: 19
+Gyro Z: 97
+
+167
+Gyro X: 88
+Gyro Y: 17
+Gyro Z: 97
+
+168
+Gyro X: 88
+Gyro Y: 15
+Gyro Z: 97
+
+169
+Gyro X: 89
+Gyro Y: 14
+Gyro Z: 97
+
+170
+Gyro X: 90
+Gyro Y: 13
+Gyro Z: 97
+
+171
+Gyro X: 93
+Gyro Y: 12
+Gyro Z: 97
+
+172
+Gyro X: 97
+Gyro Y: 10
+Gyro Z: 97
+
+173
+Gyro X: 99
+Gyro Y: 10
+Gyro Z: 97
+
+174
+Gyro X: 0
+Gyro Y: 10
+Gyro Z: 97
+
+175
+Gyro X: 0
+Gyro Y: 10
+Gyro Z: 97
+
+176
+Gyro X: 0
+Gyro Y: 9
+Gyro Z: 97
+
+177
+Gyro X: 0
+Gyro Y: 8
+Gyro Z: 97
+
+178
+Gyro X: 0
+Gyro Y: 6
+Gyro Z: 97
+
+179
+Gyro X: 0
+Gyro Y: 4
+Gyro Z: 97
+
+180
+Gyro X: 0
+Gyro Y: 3
+Gyro Z: 97
+
+181
+Gyro X: 0
+Gyro Y: 2
+Gyro Z: 97
+
+182
+Gyro X: 0
+Gyro Y: 1
+Gyro Z: 97
+
+183
+Gyro X: 0
+Gyro Y: 1
+Gyro Z: 97
+
+184
+Gyro X: 0
+Gyro Y: 0
+Gyro Z: 97
+
+185
+Gyro X: 99
+Gyro Y: 0
+Gyro Z: 97
+
+186
+Gyro X: 98
+Gyro Y: 99
+Gyro Z: 97
+
+187
+Gyro X: 97
+Gyro Y: 97
+Gyro Z: 97
+
+188
+Gyro X: 95
+Gyro Y: 96
+Gyro Z: 97
+
+189
+Gyro X: 95
+Gyro Y: 95
+Gyro Z: 97
+
+190
+Gyro X: 95
+Gyro Y: 93
+Gyro Z: 97
+
+191
+Gyro X: 95
+Gyro Y: 91
+Gyro Z: 97
+
+192
+Gyro X: 97
+Gyro Y: 89
+Gyro Z: 97
+
+193
+Gyro X: 99
+Gyro Y: 88
+Gyro Z: 97
+
+194
+Gyro X: 0
+Gyro Y: 87
+Gyro Z: 97
+
+195
+Gyro X: 1
+Gyro Y: 86
+Gyro Z: 97
+
+196
+Gyro X: 3
+Gyro Y: 85
+Gyro Z: 97
+
+197
+Gyro X: 3
+Gyro Y: 84
+Gyro Z: 97
+
+198
+Gyro X: 4
+Gyro Y: 83
+Gyro Z: 97
+
+199
+Gyro X: 4
+Gyro Y: 82
+Gyro Z: 97
+
+200
+Gyro X: 5
+Gyro Y: 81
+Gyro Z: 97
+
+201
+Gyro X: 5
+Gyro Y: 81
+Gyro Z: 97
+
+202
+Gyro X: 4
+Gyro Y: 81
+Gyro Z: 97
+
+203
+Gyro X: 3
+Gyro Y: 81
+Gyro Z: 97
+
+204
+Gyro X: 3
+Gyro Y: 81
+Gyro Z: 97
+
+205
+Gyro X: 2
+Gyro Y: 81
+Gyro Z: 97
+
+206
+Gyro X: 2
+Gyro Y: 81
+Gyro Z: 97
+
+207
+Gyro X: 2
+Gyro Y: 81
+Gyro Z: 97
+
+208
+Gyro X: 2
+Gyro Y: 81
+Gyro Z: 97
+
+209
+Gyro X: 2
+Gyro Y: 81
+Gyro Z: 97
+
+210
+Gyro X: 3
+Gyro Y: 81
+Gyro Z: 97
+
+211
+Gyro X: 4
+Gyro Y: 83
+Gyro Z: 97
+
+212
+Gyro X: 4
+Gyro Y: 84
+Gyro Z: 97
+
+213
+Gyro X: 5
+Gyro Y: 85
+Gyro Z: 97
+
+214
+Gyro X: 4
+Gyro Y: 87
+Gyro Z: 97
+
+215
+Gyro X: 3
+Gyro Y: 88
+Gyro Z: 97
+
+216
+Gyro X: 2
+Gyro Y: 89
+Gyro Z: 97
+
+217
+Gyro X: 0
+Gyro Y: 90
+Gyro Z: 97
+
+218
+Gyro X: 97
+Gyro Y: 90
+Gyro Z: 97
+
+219
+Gyro X: 95
+Gyro Y: 90
+Gyro Z: 97
+
+220
+Gyro X: 93
+Gyro Y: 92
+Gyro Z: 97
+
+221
+Gyro X: 92
+Gyro Y: 94
+Gyro Z: 97
+
+222
+Gyro X: 91
+Gyro Y: 97
+Gyro Z: 97
+
+223
+Gyro X: 91
+Gyro Y: 0
+Gyro Z: 97
+
+224
+Gyro X: 92
+Gyro Y: 3
+Gyro Z: 97
+
+225
+Gyro X: 92
+Gyro Y: 6
+Gyro Z: 97
+
+226
+Gyro X: 92
+Gyro Y: 8
+Gyro Z: 97
+
+227
+Gyro X: 93
+Gyro Y: 10
+Gyro Z: 97
+
+228
+Gyro X: 93
+Gyro Y: 11
+Gyro Z: 97
+
+229
+Gyro X: 93
+Gyro Y: 12
+Gyro Z: 97
+
+230
+Gyro X: 94
+Gyro Y: 13
+Gyro Z: 97
+
+231
+Gyro X: 94
+Gyro Y: 13
+Gyro Z: 97
+
+232
+Gyro X: 94
+Gyro Y: 14
+Gyro Z: 97
+
+233
+Gyro X: 93
+Gyro Y: 15
+Gyro Z: 97
+
+234
+Gyro X: 92
+Gyro Y: 17
+Gyro Z: 97
+
+235
+Gyro X: 90
+Gyro Y: 18
+Gyro Z: 97
+
+236
+Gyro X: 89
+Gyro Y: 18
+Gyro Z: 97
+
+237
+Gyro X: 88
+Gyro Y: 18
+Gyro Z: 97
+
+238
+Gyro X: 87
+Gyro Y: 17
+Gyro Z: 97
+
+239
+Gyro X: 87
+Gyro Y: 17
+Gyro Z: 97
+
+240
+Gyro X: 87
+Gyro Y: 15
+Gyro Z: 97
+
+241
+Gyro X: 88
+Gyro Y: 15
+Gyro Z: 97
+
+242
+Gyro X: 88
+Gyro Y: 14
+Gyro Z: 97
+
+243
+Gyro X: 89
+Gyro Y: 12
+Gyro Z: 97
+
+244
+Gyro X: 91
+Gyro Y: 10
+Gyro Z: 97
+
+245
+Gyro X: 93
+Gyro Y: 9
+Gyro Z: 97
+
+246
+Gyro X: 95
+Gyro Y: 8
+Gyro Z: 97
+
+247
+Gyro X: 96
+Gyro Y: 8
+Gyro Z: 97
+
+248
+Gyro X: 97
+Gyro Y: 8
+Gyro Z: 97
+
+249
+Gyro X: 98
+Gyro Y: 8
+Gyro Z: 97
+
+250
+Gyro X: 98
+Gyro Y: 6
+Gyro Z: 97
+
+251
+Gyro X: 98
+Gyro Y: 4
+Gyro Z: 97
+
+252
+Gyro X: 98
+Gyro Y: 3
+Gyro Z: 97
+
+253
+Gyro X: 98
+Gyro Y: 1
+Gyro Z: 97
+
+254
+Gyro X: 97
+Gyro Y: 1
+Gyro Z: 97
+
+255
+Gyro X: 97
+Gyro Y: 1
+Gyro Z: 97
+
+256
+Gyro X: 97
+Gyro Y: 0
+Gyro Z: 97
+
+257
+Gyro X: 97
+Gyro Y: 99
+Gyro Z: 97
+
+258
+Gyro X: 97
+Gyro Y: 97
+Gyro Z: 97
+
+259
+Gyro X: 98
+Gyro Y: 95
+Gyro Z: 97
+
+260
+Gyro X: 99
+Gyro Y: 94
+Gyro Z: 97
+
+261
+Gyro X: 99
+Gyro Y: 93
+Gyro Z: 97
+
+262
+Gyro X: 0
+Gyro Y: 92
+Gyro Z: 97
+
+263
+Gyro X: 0
+Gyro Y: 91
+Gyro Z: 97
+
+264
+Gyro X: 1
+Gyro Y: 89
+Gyro Z: 97
+
+265
+Gyro X: 3
+Gyro Y: 88
+Gyro Z: 97
+
+266
+Gyro X: 3
+Gyro Y: 86
+Gyro Z: 97
+
+267
+Gyro X: 4
+Gyro Y: 85
+Gyro Z: 97
+
+268
+Gyro X: 5
+Gyro Y: 83
+Gyro Z: 97
+
+269
+Gyro X: 6
+Gyro Y: 81
+Gyro Z: 97
+
+270
+Gyro X: 6
+Gyro Y: 80
+Gyro Z: 97
+
+271
+Gyro X: 6
+Gyro Y: 79
+Gyro Z: 97
+
+272
+Gyro X: 5
+Gyro Y: 79
+Gyro Z: 97
+
+273
+Gyro X: 4
+Gyro Y: 78
+Gyro Z: 97
+
+274
+Gyro X: 3
+Gyro Y: 78
+Gyro Z: 97
+
+275
+Gyro X: 1
+Gyro Y: 79
+Gyro Z: 97
+
+276
+Gyro X: 1
+Gyro Y: 78
+Gyro Z: 97
+
+277
+Gyro X: 1
+Gyro Y: 78
+Gyro Z: 97
+
+278
+Gyro X: 1
+Gyro Y: 79
+Gyro Z: 97
+
+279
+Gyro X: 1
+Gyro Y: 79
+Gyro Z: 97
+
+280
+Gyro X: 2
+Gyro Y: 81
+Gyro Z: 97
+
+281
+Gyro X: 3
+Gyro Y: 83
+Gyro Z: 97
+
+282
+Gyro X: 4
+Gyro Y: 85
+Gyro Z: 97
+
+283
+Gyro X: 5
+Gyro Y: 88
+Gyro Z: 97
+
+284
+Gyro X: 5
+Gyro Y: 91
+Gyro Z: 97
+
+285
+Gyro X: 5
+Gyro Y: 93
+Gyro Z: 97
+
+286
+Gyro X: 5
+Gyro Y: 95
+Gyro Z: 97
+
+287
+Gyro X: 3
+Gyro Y: 96
+Gyro Z: 97
+
+288
+Gyro X: 2
+Gyro Y: 98
+Gyro Z: 97
+
+289
+Gyro X: 0
+Gyro Y: 0
+Gyro Z: 97
+
+290
+Gyro X: 99
+Gyro Y: 2
+Gyro Z: 97
+
+291
+Gyro X: 97
+Gyro Y: 4
+Gyro Z: 97
+
+292
+Gyro X: 95
+Gyro Y: 6
+Gyro Z: 97
+
+293
+Gyro X: 94
+Gyro Y: 7
+Gyro Z: 97
+
+294
+Gyro X: 93
+Gyro Y: 8
+Gyro Z: 97
+
+295
+Gyro X: 93
+Gyro Y: 9
+Gyro Z: 97
+
+296
+Gyro X: 93
+Gyro Y: 10
+Gyro Z: 97
+
+297
+Gyro X: 94
+Gyro Y: 11
+Gyro Z: 97
+
+298
+Gyro X: 95
+Gyro Y: 12
+Gyro Z: 97
+
+299
+Gyro X: 95
+Gyro Y: 14
+Gyro Z: 97
+
+300
+Gyro X: 95
+Gyro Y: 15
+Gyro Z: 97
+
+301

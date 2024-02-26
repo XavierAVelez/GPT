@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "GPT",
-    "project_version":    "2963839-dirty",
+    "project_version":    "95770a4-dirty",
     "project_path":       "C:/Users/Xavier Velez/Documents/GPT/GPT",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.1.2",
     "build_dir":          "C:/Users/Xavier Velez/Documents/GPT/GPT/build",
