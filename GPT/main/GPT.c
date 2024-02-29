@@ -6,6 +6,7 @@
 #include "driver/gpio.h"
 #include "driver/spi_master.h"
 #include "driver/gptimer.h"
+#include "driver/adc.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
@@ -40,6 +41,8 @@ struct sensor_data {
     short accelerometerX[302];
     short accelerometerY[302];
     short accelerometerZ[302];
+
+    int strain[302];
 };
 
 // instantiate global struct for sensor data
@@ -219,6 +222,24 @@ static esp_err_t get_handler_accelZ(httpd_req_t *req)
     return ESP_OK;
 }
 
+static esp_err_t get_handler_strain(httpd_req_t *req)
+{
+    // allocate response buffer
+    char resp[2000];
+
+    // store sensor data in the buffer separated by commas
+    int rind = 0;
+    for (unsigned int i = 0; i < 300; i++)
+    {
+        snprintf(resp+rind, 4, "%d", SensorData.strain[i]);
+        snprintf(resp+rind+4, 2, "%c", ',');
+        rind += 6;
+    }
+
+    httpd_resp_send(req, resp, rind);
+    return ESP_OK;
+}
+
 
 void server_initiation()
 {
@@ -268,12 +289,20 @@ void server_initiation()
         .user_ctx = NULL
     };
 
+    httpd_uri_t uri_get_strain = {
+        .uri = "/strain",
+        .method = HTTP_GET,
+        .handler = get_handler_strain,
+        .user_ctx = NULL
+    };
+
     httpd_register_uri_handler(server_handle, &uri_get_main);
     httpd_register_uri_handler(server_handle, &uri_get_start);
     httpd_register_uri_handler(server_handle, &uri_get_gyroX);
     httpd_register_uri_handler(server_handle, &uri_get_gyroY);
     httpd_register_uri_handler(server_handle, &uri_get_accelY);
     httpd_register_uri_handler(server_handle, &uri_get_accelZ);
+    httpd_register_uri_handler(server_handle, &uri_get_strain);
 }
 
 
@@ -343,6 +372,12 @@ void app_main(void)
     spi_transaction_t t;
     memset(&t, 0, sizeof(t));
 
+    // initialize 12-bit ADC1 to use GPIO32 (channel 4)
+    adc1_config_width(ADC_WIDTH_BIT_12);
+    adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_6);
+    adc1_config_channel_atten(ADC1_CHANNEL_7, ADC_ATTEN_DB_6);
+
+
     printf("Master input:\n");
     int index = 0;
     while (1)
@@ -396,6 +431,9 @@ void app_main(void)
             SensorData.gyroscopeY[index] = ((short)(recvbuf[10] * .39));
             SensorData.gyroscopeZ[index] = ((short)(recvbuf[12] * .39));
 
+            // store strain sensor data in sensor data struct
+            SensorData.strain[index] = ((int)(adc1_get_raw(ADC1_CHANNEL_4) - adc1_get_raw(ADC_CHANNEL_7)));
+
             printf("Gyro X: %hi\n", (((short)(recvbuf[8] * .39))));
             printf("Gyro Y: %hi\n", (((short)(recvbuf[10] * .39))));
             printf("Gyro Z: %hi\n\n", (((short)(recvbuf[12] * .39))));
@@ -421,7 +459,10 @@ void app_main(void)
         else{
             index = 0;
         }
+        
+        //printf("ADC: %d\n", adc1_get_raw(ADC1_CHANNEL_4) - adc1_get_raw(ADC_CHANNEL_7));
         vTaskDelay(1);
+        
     }
     
     //Never reached.

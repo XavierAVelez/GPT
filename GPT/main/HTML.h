@@ -12,4 +12,6 @@
         "<a href=\"/accely\"><button class=\"button button3\">Get Accel Y</button></a>"\
         "</form><br>"\
         "<a href=\"/accelz\"><button class=\"button button3\">Get Accel Z</button></a>"\
+        "</form><br>"\
+        "<a href=\"/strain\"><button class=\"button button3\">Get Strain</button></a>"\
     "</body></html>"

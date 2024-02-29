@@ -1,68 +1,95 @@
-[1/5] cmd.exe /C "cd /D "C:\Users\Xavier Velez\Documents\GPT\GPT\build\esp-idf\esptool_py" && C:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.1.2/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Users/Xavier Velez/Documents/GPT/GPT/build/partition_table/partition-table.bin" "C:/Users/Xavier Velez/Documents/GPT/GPT/build/GPT.bin""
-GPT.bin binary size 0xc4430 bytes. Smallest app partition is 0x100000 bytes. 0x3bbd0 bytes (23%) free.
-[2/5] Performing build step for 'bootloader'
-[1/1] cmd.exe /C "cd /D "C:\Users\Xavier Velez\Documents\GPT\GPT\build\bootloader\esp-idf\esptool_py" && C:\Espressif\python_env\idf5.1_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.1.2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "C:/Users/Xavier Velez/Documents/GPT/GPT/build/bootloader/bootloader.bin""
-Bootloader binary size 0x6810 bytes. 0x7f0 bytes (7%) free.
-[2/3] cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.1.2\components\esptool_py && C:\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.1.2 -D SERIAL_TOOL=C:/Espressif/python_env/idf5.1_py3.11_env/Scripts/python.exe;;C:/Espressif/frameworks/esp-idf-v5.1.2/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=C:/Users/Xavier Velez/Documents/GPT/GPT/build" -P C:/Espressif/frameworks/esp-idf-v5.1.2/components/esptool_py/run_serial_tool.cmake"
-esptool.py --chip esp32 -p COM4 -b 115200 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x1000 bootloader/bootloader.bin 0x10000 GPT.bin 0x8000 partition_table/partition-table.bin
-esptool.py v4.7.0
-Serial port COM4
-Connecting....
-Chip is ESP32-D0WD-V3 (revision v3.0)
-Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
-Crystal is 40MHz
-MAC: 40:22:d8:ea:1f:20
-Uploading stub...
-Running stub...
-Stub running...
-Configuring flash size...
-Flash will be erased from 0x00001000 to 0x00007fff...
-Flash will be erased from 0x00010000 to 0x000d4fff...
-Flash will be erased from 0x00008000 to 0x00008fff...
-Compressed 26640 bytes to 16685...
-Writing at 0x00001000... (50 %)
-Writing at 0x0000768e... (100 %)
-Wrote 26640 bytes (16685 compressed) at 0x00001000 in 1.8 seconds (effective 120.3 kbit/s)...
-Hash of data verified.
-Compressed 803888 bytes to 518843...
-Writing at 0x00010000... (3 %)
-Writing at 0x0001bc9c... (6 %)
-Writing at 0x0002500e... (9 %)
-Writing at 0x00029e29... (12 %)
-Writing at 0x0003401a... (15 %)
-Writing at 0x0003a3ab... (18 %)
-Writing at 0x0003fc3b... (21 %)
-Writing at 0x000455e5... (25 %)
-Writing at 0x0004af4d... (28 %)
-Writing at 0x0005096f... (31 %)
-Writing at 0x00056775... (34 %)
-Writing at 0x0005bde3... (37 %)
-Writing at 0x000610b6... (40 %)
-Writing at 0x0006660f... (43 %)
-Writing at 0x0006b746... (46 %)
-Writing at 0x00070ef1... (50 %)
-Writing at 0x000765d1... (53 %)
-Writing at 0x0007c3ce... (56 %)
-Writing at 0x00081b1c... (59 %)
-Writing at 0x0008709b... (62 %)
-Writing at 0x0008c879... (65 %)
-Writing at 0x00092269... (68 %)
-Writing at 0x00097903... (71 %)
-Writing at 0x0009d275... (75 %)
-Writing at 0x000a33d0... (78 %)
-Writing at 0x000a97ab... (81 %)
-Writing at 0x000af068... (84 %)
-Writing at 0x000b4911... (87 %)
-Writing at 0x000bda97... (90 %)
-Writing at 0x000c5505... (93 %)
-Writing at 0x000cb270... (96 %)
-Writing at 0x000d08ce... (100 %)
-Wrote 803888 bytes (518843 compressed) at 0x00010000 in 45.7 seconds (effective 140.7 kbit/s)...
-Hash of data verified.
-Compressed 3072 bytes to 103...
-Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 437.6 kbit/s)...
-Hash of data verified.
+ets Jul 29 2019 12:21:46
 
-Leaving...
-Hard resetting via RTS pin...
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7080
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Feb 15 2024 22:04:49[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=23d80h (146816) map[0m
+[0;32mI (157) esp_image: segment 1: paddr=00033da8 vaddr=3ffb0000 size=03c14h ( 15380) load[0m
+[0;32mI (164) esp_image: segment 2: paddr=000379c4 vaddr=40080000 size=08654h ( 34388) load[0m
+[0;32mI (178) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=8daa4h (580260) map[0m
+[0;32mI (388) esp_image: segment 4: paddr=000cdacc vaddr=40088654 size=0f118h ( 61720) load[0m
+[0;32mI (425) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (426) boot: Disabling RNG early entropy source...[0m
+[0;32mI (437) cpu_start: Multicore app[0m
+[0;32mI (437) cpu_start: Pro cpu up.[0m
+[0;32mI (438) cpu_start: Starting app cpu, entry point is 0x4008149c[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (455) cpu_start: Pro cpu start user code[0m
+[0;32mI (455) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (455) cpu_start: Application information:[0m
+[0;32mI (460) cpu_start: Project name:     GPT[0m
+[0;32mI (465) cpu_start: App version:      b9669a0-dirty[0m
+[0;32mI (470) cpu_start: Compile time:     Feb 26 2024 15:13:00[0m
+[0;32mI (476) cpu_start: ELF file SHA256:  1ea08ec04aa1a84e...[0m
+[0;32mI (482) cpu_start: ESP-IDF:          v5.1.2[0m
+[0;32mI (487) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (492) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (497) cpu_start: Chip rev:         v3.0[0m
+[0;32mI (502) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (509) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (515) heap_init: At 3FFB8FD0 len 00027030 (156 KiB): DRAM[0m
+[0;32mI (521) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (527) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (534) heap_init: At 4009776C len 00008894 (34 KiB): IRAM[0m
+[0;32mI (541) spi_flash: detected chip: generic[0m
+[0;32mI (544) spi_flash: flash io: dio[0m
+[0;33mW (549) ADC: legacy driver is deprecated, please migrate to `esp_adc/adc_oneshot.h`[0m
+[0;32mI (557) app_start: Starting scheduler on CPU0[0m
+[0;32mI (562) app_start: Starting scheduler on CPU1[0m
+[0;32mI (562) main_task: Started on CPU0[0m
+[0;32mI (572) main_task: Calling app_main()[0m
+I (612) wifi:wifi driver task: 3ffc0fa0, prio:23, stack:6656, core=0
+I (622) wifi:wifi firmware version: 91b9630
+I (622) wifi:wifi certification version: v7.0
+I (622) wifi:config NVS flash: enabled
+I (622) wifi:config nano formating: disabled
+I (622) wifi:Init data frame dynamic rx buffer num: 32
+I (632) wifi:Init static rx mgmt buffer num: 5
+I (632) wifi:Init management short buffer num: 32
+I (642) wifi:Init dynamic tx buffer num: 32
+I (642) wifi:Init static rx buffer size: 1600
+I (652) wifi:Init static rx buffer num: 10
+I (652) wifi:Init dynamic rx buffer num: 32
+[0;32mI (652) wifi_init: rx ba win: 6[0m
+[0;32mI (662) wifi_init: tcpip mbox: 32[0m
+[0;32mI (662) wifi_init: udp mbox: 6[0m
+[0;32mI (662) wifi_init: tcp mbox: 6[0m
+[0;32mI (672) wifi_init: tcp tx win: 5744[0m
+[0;32mI (672) wifi_init: tcp rx win: 5744[0m
+[0;32mI (682) wifi_init: tcp mss: 1440[0m
+[0;32mI (682) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (682) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (692) phy_init: phy_version 4780,16b31a7,Sep 22 2023,20:42:16[0m
+I (772) wifi:mode : sta (40:22:d8:ea:1f:20)
+I (772) wifi:enable tsf
+WiFi connecting WIFI_EVENT_STA_START ... 
+[0;32mI (782) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+Master input:
+I (1392) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (1392) wifi:state: init -> auth (b0)
+I (1402) wifi:state: auth -> assoc (0)
+I (1402) wifi:state: assoc -> run (10)
+I (11402) wifi:state: run -> init (cc00)
+I (11402) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+WiFi lost connection WIFI_EVENT_STA_DISCONNECTED ... 
