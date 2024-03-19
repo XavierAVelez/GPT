@@ -18,6 +18,9 @@
 #include "nvs_flash.h"
 #include "esp_netif.h"
 #include "esp_http_server.h"
+#include "esp_http_client.h"
+#include "mqtt_client.h"
+#include "esp_tls.h"
 #include "esp_wifi.h"
 //#include "esp_eap_client.h"
 #include "esp_log.h"
@@ -27,6 +30,7 @@
 
 #define GPIO_OUT_PIN_SEL    (1ULL << GPIO_NUM_16)
 #define GPIO_IN_PIN_SEL    (1ULL << GPIO_NUM_17)
+#define MAX_HTTP_OUTPUT_BUFFER 650
 
 bool StartData = false;
 bool StartClock = false;
@@ -127,6 +131,62 @@ void wifi_connection()
 }
 
 
+#if DEVICE_SELECT
+esp_err_t _http_event_handler(esp_http_client_event_t *evt)
+{
+    static char *output_buffer;  // Buffer to store response of http request from event handler
+    static int output_len;       // Stores number of bytes read
+    switch(evt->event_id) {
+        case HTTP_EVENT_ERROR:
+            printf("HTTP ERROR STATE\n");
+            break;
+        case HTTP_EVENT_ON_CONNECTED:
+            printf("HTTP CONNECTED STATE\n");
+            break;
+        case HTTP_EVENT_HEADER_SENT:
+            printf("HTTP HEADER SENT STATE\n");
+            break;
+        case HTTP_EVENT_ON_HEADER:
+            printf("HTTP HEADER STATE\n");
+            break;
+        case HTTP_EVENT_ON_DATA:
+            printf("HTTP DATA STATE\n");
+            // Clean the buffer in case of a new request
+            if (output_len == 0 && evt->user_data) {
+                // we are just starting to copy the output data into the use
+                memset(evt->user_data, 0, MAX_HTTP_OUTPUT_BUFFER);
+            }
+
+            break;
+        case HTTP_EVENT_ON_FINISH:
+            printf("HTTP FINISH STATE\n");
+            if (output_buffer != NULL) {
+                // Response is accumulated in output_buffer. Uncomment the below line to print the accumulated response
+                // ESP_LOG_BUFFER_HEX(TAG, output_buffer, output_len);
+                free(output_buffer);
+                output_buffer = NULL;
+            }
+            output_len = 0;
+            break;
+        case HTTP_EVENT_DISCONNECTED:
+            printf("HTTP DISCONNECTED STATE\n");
+            int mbedtls_err = 0;
+            esp_err_t err = esp_tls_get_and_clear_last_error((esp_tls_error_handle_t)evt->data, &mbedtls_err, NULL);
+            if (output_buffer != NULL) {
+                free(output_buffer);
+                output_buffer = NULL;
+            }
+            output_len = 0;
+            break;
+        case HTTP_EVENT_REDIRECT:
+            printf("HTTP REDIRECT STATE\n");
+            break;
+    }
+    return ESP_OK;
+}
+#endif
+
+
 // handler for GET call that has the main page
 static esp_err_t get_handler_main(httpd_req_t *req)
 {
@@ -145,6 +205,39 @@ static esp_err_t get_handler_start(httpd_req_t *req)
 
     const char resp[] = HTML;
     httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
+
+// only load this code to the primary device (upper arm)
+#if DEVICE_SELECT
+    char local_response_buffer[MAX_HTTP_OUTPUT_BUFFER + 1] = {0};
+
+    // configure the client that will be communicated with (i.e., the secondary device server)
+    esp_http_client_config_t config = 
+    {
+        .host = SECONDARY_IP,
+        .url = "http://172.20.10.5/start",
+        //.path = "/start",
+        .query = "esp",
+        .event_handler = _http_event_handler,
+        .user_data = local_response_buffer,
+        .method = HTTP_METHOD_GET,
+        .disable_auto_redirect = true,
+        .transport_type = HTTP_TRANSPORT_OVER_TCP
+    };
+    esp_http_client_handle_t client = esp_http_client_init(&config);
+
+    // execute a get request from the client
+    esp_err_t err = esp_http_client_perform(client);
+    if (err == ESP_OK) {
+        printf("HTTP GET Status = %d, content_length = %"PRId64,
+                esp_http_client_get_status_code(client),
+                esp_http_client_get_content_length(client));
+    } else {
+        printf("HTTP GET request failed: %s", esp_err_to_name(err));
+    }
+
+    esp_http_client_cleanup(client);
+
+#endif
 
     return ESP_OK;
 }
@@ -374,7 +467,7 @@ void app_main(void)
 
     // initialize 12-bit ADC1 to use GPIO32 (channel 4)
     adc1_config_width(ADC_WIDTH_BIT_12);
-    adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_6);
+    adc1_config_channel_atten(ADC1_CHANNEL_6, ADC_ATTEN_DB_6);
     adc1_config_channel_atten(ADC1_CHANNEL_7, ADC_ATTEN_DB_6);
 
 
@@ -432,12 +525,13 @@ void app_main(void)
             SensorData.gyroscopeZ[index] = ((short)(recvbuf[12] * .39));
 
             // store strain sensor data in sensor data struct
-            SensorData.strain[index] = ((int)(adc1_get_raw(ADC1_CHANNEL_4) - adc1_get_raw(ADC_CHANNEL_7)));
+            SensorData.strain[index] = ((int)(adc1_get_raw(ADC1_CHANNEL_6) - adc1_get_raw(ADC_CHANNEL_7)));
 
+            /*
             printf("Gyro X: %hi\n", (((short)(recvbuf[8] * .39))));
             printf("Gyro Y: %hi\n", (((short)(recvbuf[10] * .39))));
             printf("Gyro Z: %hi\n\n", (((short)(recvbuf[12] * .39))));
-            
+            */
 
             /*
             printf("Accel X: %f\n", (((float)recvbuf[0] * .39) + ((float)recvbuf[1] * .0039)));
@@ -454,13 +548,13 @@ void app_main(void)
 
             spi_device_release_bus(handle);
             index++;
-            printf("%i\n", index);
+            //printf("%i\n", index);
         }
         else{
             index = 0;
         }
         
-        //printf("ADC: %d\n", adc1_get_raw(ADC1_CHANNEL_4) - adc1_get_raw(ADC_CHANNEL_7));
+        //printf("ADC: %d\n", adc1_get_raw(ADC1_CHANNEL_6) - adc1_get_raw(ADC_CHANNEL_7));
         vTaskDelay(1);
         
     }

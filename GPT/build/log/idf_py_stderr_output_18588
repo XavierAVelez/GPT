@@ -1,0 +1,61 @@
+[0;33m--- WARNING: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM4 instead...[0m
+[0;33m--- esp-idf-monitor 1.4.0 on \\.\COM4 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008149c: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+0x4015fac3: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+0x40159e19: printf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/printf.c:56 (discriminator 5)
+0x400d7554: _http_event_handler at C:/Users/Xavier Velez/Documents/GPT/GPT/main/GPT.c:162
+0x4016874b: http_dispatch_event at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/esp_http_client.c:183
+0x400e62a6: esp_http_client_perform at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/esp_http_client.c:1308
+0x400d77ef: get_handler_start at C:/Users/Xavier Velez/Documents/GPT/GPT/main/GPT.c:227
+0x400e7e9d: httpd_uri at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_uri.c:329
+0x400e86b9: httpd_parse_req at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_parse.c:667 (discriminator 15)
+0x400e8758: httpd_req_new at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_parse.c:795
+0x400e762c: httpd_sess_process at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_sess.c:423 (discriminator 15)
+0x400e68fc: httpd_process_session at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_main.c:255 (discriminator 15)
+0x401687e3: httpd_sess_enum at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_sess.c:50 (discriminator 1)
+0x400e701a: httpd_server at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_main.c:305
+0x400e7082: httpd_thread at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_main.c:327 (discriminator 15)
+0x4008cb21: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008149c: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x400014fd: strlen in ROM
+[0m
+[0;33m0x400014fd: strlen in ROM
+0x4000150d: strlen in ROM
+[0m
+[0;33m0x400014fa: strlen in ROM
+0x4015fac3: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1524
+0x40159e19: printf at /builds/idf/crosstool-NG/.build/HOST-x86_64-w64-mingw32/xtensa-esp32-elf/src/newlib/newlib/libc/stdio/printf.c:56 (discriminator 5)
+0x400d7554: _http_event_handler at C:/Users/Xavier Velez/Documents/GPT/GPT/main/GPT.c:162
+0x4016874b: http_dispatch_event at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/esp_http_client.c:183
+0x400e62a6: esp_http_client_perform at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_client/esp_http_client.c:1308
+0x400d77ef: get_handler_start at C:/Users/Xavier Velez/Documents/GPT/GPT/main/GPT.c:227
+0x400e7e9d: httpd_uri at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_uri.c:329
+0x400e86b9: httpd_parse_req at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_parse.c:667 (discriminator 15)
+0x400e8758: httpd_req_new at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_parse.c:795
+0x400e762c: httpd_sess_process at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_sess.c:423 (discriminator 15)
+0x400e68fc: httpd_process_session at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_main.c:255 (discriminator 15)
+0x401687e3: httpd_sess_enum at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_sess.c:50 (discriminator 1)
+0x400e701a: httpd_server at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_main.c:305
+0x400e7082: httpd_thread at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_http_server/src/httpd_main.c:327 (discriminator 15)
+0x4008cb21: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.1.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008149c: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.1.2/components/esp_system/port/cpu_start.c:157
+[0m
+[0m

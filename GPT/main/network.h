@@ -4,12 +4,17 @@
 #define SSID "XavierV (2)"
 #define PASS "xaviernetwork"
 
+#define DEVICE_SELECT true
+#define PRIMARY_IP "http://172.20.10.4/"
+#define SECONDARY_IP "172.20.10.5/"
+
+
 /*
 #define EAP_ID "xvelez@ufl.edu"
 #define EAP_USER "xvelez@ufl.edu"
 #define EAP_PASS "F1nn3g@n!"
 
-#define ROOTCERT \
+define ROOTCERT \
     "-----BEGIN CERTIFICATE-----\n"\
     "MIIF3jCCA8agAwIBAgIQAf1tMPyjylGoG7xkDjUDLTANBgkqhkiG9w0BAQwFADCB\n"\
     "iDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0pl\n"\
