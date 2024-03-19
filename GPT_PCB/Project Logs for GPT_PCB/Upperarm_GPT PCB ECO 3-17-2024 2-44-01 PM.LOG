@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=NetJ1_1 Pin=VR1-1
+Removed Pin From Net: NetName=3.3V Pin=VR1-3
+Removed Pin From Net: NetName=GND Pin=VR1-4
+Removed Member From Class: ClassName=GPT_Schematic Member=VR1
+Added Component: Designator=U?(SOT65P210X110-5N)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "MIC5365-3.3YC5-TR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJ1_1 Pin=U?-1
+Added Pin To Net: NetName=GND Pin=U?-2
+Added Pin To Net: NetName=NetJ1_1 Pin=U?-3
+Added Pin To Net: NetName=3.3V Pin=U?-5
+Added Member To Class: ClassName=GPT_Schematic Member=Component U? MIC5365-3.3YC5-TR

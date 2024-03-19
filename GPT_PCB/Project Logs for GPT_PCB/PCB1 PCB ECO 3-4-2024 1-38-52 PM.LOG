@@ -1,0 +1,25 @@
+Change Component Designator: OldDesignator=P2 NewDesignator=P1
+Added Component: Designator=P2(Vibe Motor)
+Added Pin To Net: NetName=GND Pin=P2-1
+Added Pin To Net: NetName=3.3V Pin=U1-13
+Added Pin To Net: NetName=GND Pin=U1-18
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=NetR2_2 Pin=U2-7
+Added Pin To Net: NetName=ADO/SDO Pin=U1-9
+Added Pin To Net: NetName=ADO/SDO Pin=U2-31
+Added Net: Name=ADO/SDO
+Added Pin To Net: NetName=NetP1_1 Pin=P1-1
+Added Pin To Net: NetName=NetP1_1 Pin=R1-2
+Added Pin To Net: NetName=NetP1_1 Pin=U2-6
+Added Net: Name=NetP1_1
+Added Pin To Net: NetName=NetU1_22 Pin=U1-22
+Added Pin To Net: NetName=NetU1_22 Pin=U2-29
+Added Net: Name=NetU1_22
+Added Pin To Net: NetName=NetU1_23 Pin=U1-23
+Added Pin To Net: NetName=NetU1_23 Pin=U2-30
+Added Net: Name=NetU1_23
+Added Pin To Net: NetName=NetU1_24 Pin=U1-24
+Added Pin To Net: NetName=NetU1_24 Pin=U2-37
+Added Net: Name=NetU1_24
+Added Pin To Net: NetName=VIB Pin=U2-27
+Added Net: Name=VIB

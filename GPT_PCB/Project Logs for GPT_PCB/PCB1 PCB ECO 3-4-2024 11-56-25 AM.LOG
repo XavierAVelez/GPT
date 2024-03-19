@@ -1,0 +1,6 @@
+Added Component: Designator=MD1(FP-ESP32-WROOM-32D_4MB-MFG)
+Add object: Class not registered
+Added Component: Designator=U1(INSE-MPU-6500-QFN24_N)
+Add object: Catastrophic failure
+Add Class Member: Failed to add class member : Component MD1 ESP32-WROOM-32D (4MB)
+Add Class Member: Failed to add class member : Component U1 MPU-6500

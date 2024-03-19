@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=3.3V Pin=J1-1
+Added Component: Designator=VR1(TO229P990X252-3N)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "UA78M33CKVURG3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.3V Pin=VR1-3
+Added Pin To Net: NetName=GND Pin=VR1-4
+Added Pin To Net: NetName=NetJ1_1 Pin=J1-1
+Added Pin To Net: NetName=NetJ1_1 Pin=VR1-1
+Added Net: Name=NetJ1_1
+Added Member To Class: ClassName=GPT_Schematic Member=Component VR1 UA78M33CKVURG3

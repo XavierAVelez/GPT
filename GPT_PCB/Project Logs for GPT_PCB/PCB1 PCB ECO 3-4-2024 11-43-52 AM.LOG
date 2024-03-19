@@ -1,0 +1,9 @@
+Removed Member From Class: ClassName=GPT_Schematic Member=C?
+Added Component: Designator=*(Vibe Motor)
+Added Component: Designator=MD?(FP-ESP32-WROOM-32D_4MB-MFG)
+Add object: Class not registered
+Added Component: Designator=U?(INSE-MPU-6500-QFN24_N)
+Add object: Catastrophic failure
+Added Member To Class: ClassName=GPT_Schematic Member=Component * Vibe Motor
+Add Class Member: Failed to add class member : Component MD? ESP32-WROOM-32D (4MB)
+Add Class Member: Failed to add class member : Component U? MPU-6500

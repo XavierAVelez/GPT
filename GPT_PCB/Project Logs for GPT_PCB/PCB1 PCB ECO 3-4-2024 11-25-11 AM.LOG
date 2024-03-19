@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=C? Old Footprint=RAD-0.3 New Footprint=Vime Motor
+Added Component: Designator=MD?(FP-ESP32-WROOM-32D_4MB-MFG)
+Add object: Catastrophic failure
+Added Component: Designator=U?(INSE-MPU-6500-QFN24_N)
+Add object: Catastrophic failure
+Add Class Member: Failed to add class member : Component MD? ESP32-WROOM-32D (4MB)
+Add Class Member: Failed to add class member : Component U? MPU-6500

@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=GND Pin=P2-1
+Added Pin To Net: NetName=VIB Pin=P2-1
+Added Pin To Net: NetName=GND Pin=P2-2
